@@ -1,25 +1,30 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: tassio
- * Date: 05/01/2018
- * Time: 18:00
- */
 
 //So funciona se desativar os erros!
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
 
 //include("../libs/mpdf/mpdf.php");
-require_once "../libs/mpdf/mpdf.php";
-require_once "../db/alunoDAO.php";
+require_once "../lib/mpdf/mpdf.php";
+require_once "../dao/beneficiariesDAO.php";
 
-$alunoDAO = new alunoDAO();
+$alunoDAO = new beneficiariesDAO();
 
 $listObjs = $alunoDAO->findAll();
 
+$html = "<table border='1' cellspacing='3' cellpadding='4' >";
+$html .= "<tr>
+            <th>ID</th>
+            <th>NIS</th>
+            <th>NOME</th>
+        </tr>";
 foreach ($listObjs as $var):
-    $html.=$var->Nome.='<br>';
+    $html.= "<tr>
+                <td>$var->id_beneficiaries</td>
+                <td>$var->str_nis</td>
+                <td>$var->str_name_person</td>
+          </tr>";
 endforeach;
+$html .= "</table>";
 
 $mpdf=new mPDF();
 $mpdf->SetCreator(PDF_CREATOR);

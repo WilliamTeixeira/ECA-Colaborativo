@@ -98,9 +98,7 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
 
 
                         <?php
-
                         echo (isset($msg) && ($msg != null || $msg != "")) ? $msg : '';
-
                         //chamada a paginação
                         $object->tabelapaginada();
 

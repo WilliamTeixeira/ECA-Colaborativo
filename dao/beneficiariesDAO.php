@@ -173,8 +173,5 @@ class beneficiariesDAO
             echo "<p class='bg-danger'>Nenhum registro foi encontrado!</p>
      ";
         endif;
-
     }
-
-
 }

@@ -183,6 +183,12 @@ echo "
                         <p>Users</p>
                     </a>
                 </li>
+                <li>
+                    <a href='relatorioGeral.php'>
+                        <i class=\"ti-files\"></i>
+                        <p>Relatorio</p>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>";
