@@ -7,10 +7,10 @@
 
 set_time_limit(60);
 
-require "libs/PHPMailer/src/PHPMailer.php";
-require "libs/PHPMailer/src/SMTP.php";
-require "libs/PHPMailer/src/Exception.php";
-require_once 'db/userDAO.php';
+require "lib/PHPMailer/src/PHPMailer.php";
+require "lib/PHPMailer/src/SMTP.php";
+require "lib/PHPMailer/src/Exception.php";
+require_once 'dao/userDAO.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // 0 = off (for production use)
         // 1 = client messages
         // 2 = client and server messages
-        $mail->SMTPDebug = 2;
+        $mail->SMTPDebug = 1;
 
         $mail->Host = 'smtp.gmail.com';
 
@@ -51,9 +51,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $mail->addAddress($email, $login);
 
-        $mail->Subject = 'Recuperação de login SGA';
+        $mail->Subject = 'Recuperacao de login ECA';
 
-        $mail->msgHTML("Sua senha temporária é 123456 <br> Não perca novamente!");
+        $mail->msgHTML("Sua senha temporária é <strong>123456</strong> <br> Não perca novamente!");
 
         //$mail->addAttachment('phpmailer.png');
 
@@ -62,14 +62,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             echo "E-mail enviado com sucesso!";
         }
-        header('Location: login.php');
+        header('Location:login.php');
     }else {
         echo 'Logim ou senha não encontrados!';
-        var_dump($login);
-        var_dump($email);
+        //var_dump($login);
+        //var_dump($email);
         //header('Location: recuperar.php');
     }
 } else {
     echo 'Dados não preenchidos';
-    header('Location: recuperar.php');
+    header('location:recuperar.php');
 }
