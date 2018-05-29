@@ -1,6 +1,6 @@
 <?php
 /**
- * Description of subfunctionsDAO
+ * Description of userDAO
  *
  * @author wtx
  */
@@ -177,9 +177,11 @@ class userDAO
         <th style='text-align: center; font-weight: bolder;'>Nome</th>
         <th style='text-align: center; font-weight: bolder;'>Email</th>
         <th style='text-align: center; font-weight: bolder;'>Resetar</th>
-        <th style='text-align: center; font-weight: bolder;'>Perfil</th>
-        <th style='text-align: center; font-weight: bolder;' colspan='2'>Ações</th>
-       </tr>
+        <th style='text-align: center; font-weight: bolder;'>Perfil</th>";
+        if($_SESSION['perfil'] == 0){
+            echo "<th style='text-align: center; font-weight: bolder;' colspan='2'>Ações</th>";
+        }
+       echo "</tr>
      </thead>
      <tbody>";
             foreach ($dados as $var):
@@ -194,10 +196,15 @@ class userDAO
         echo "</td>
         <td style='text-align: center'>";
            echo ($var->perfil == 0)? "Adm" : "User";
-        echo "</td>
-        <td style='text-align: center'><a href='?act=upd&id=$var->iduser' title='Alterar'><i class='ti-reload'></i></a></td>
-        <td style='text-align: center'><a href='?act=del&id=$var->iduser' title='Remover'><i class='ti-close'></i></a></td>
-       </tr>";
+        if($_SESSION['perfil'] == 0){
+            echo "</td>
+            <td style='text-align: center'><a href='?act=upd&id=$var->iduser' title='Alterar'><i class='ti-reload'></i></a></td>
+            <td style='text-align: center'><a href='?act=del&id=$var->iduser' title='Remover'><i class='ti-close'></i></a></td>
+            </tr>";
+
+        }else{
+            echo "</tr>";
+        }
             endforeach;
             echo "
 </tbody>

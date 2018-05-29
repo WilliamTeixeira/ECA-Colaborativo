@@ -17,9 +17,8 @@ $template->header();
 $template->sidebar();
 $template->mainpanel();
 
+$p = $_SESSION['perfil'];
 
-
-if ($_SESSION['perfil'] == 0) {
 // Verificar se foi enviando dados via POST
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $id = (isset($_POST["id"]) && $_POST["id"] != null) ? $_POST["id"] : "";
@@ -75,11 +74,6 @@ if ($_SESSION['perfil'] == 0) {
         $msg = $object->remover($user);
         $id = null;
     }
-} else {
-    header('location:index.php');
-    echo "<script> alert('O seu usuário não tem permissão para executar está operação!'); </script>";
-    
-}
 ?>
 
 <div class='content' xmlns="http://www.w3.org/1999/html">
@@ -93,65 +87,65 @@ if ($_SESSION['perfil'] == 0) {
 
                     </div>
                     <div class='content table-responsive'>
-
+                    <?php
+                        if($p == 1){
+                            $object->tabelapaginada();
+                        }
+                    ?>
                         <form action="?act=save&id=" method="POST" name="form1">
 
                             <input type="hidden" name="id" value="<?php
-// Preenche o id no campo id com um valor "value"
-echo (isset($id) && ($id != null || $id != "")) ? $id : '';
-?>"/>
-                            Login:
-                            <input class="form-control" type="text" size="50" name="login" value="<?php
+                            // Preenche o id no campo id com um valor "value"
+                            echo (isset($id) && ($id != null || $id != "")) ? $id : '';
+                            ?>"/>
+                            
+                            <input placeholder="Login" class="form-control" type="<?php echo ($p == 0) ? 'text' : 'hidden' ?>" size="50" name="login" value="<?php
                             // Preenche o nome no campo nome com um valor "value"
                             echo (isset($login) && ($login != null || $login != "")) ? $login : '';
                             ?>"/>
                             <br/>
-                            Senha:
-                            <input class="form-control" type="text" size="10" name="senha" value="<?php
+                            <input placeholder="Senha" class="form-control" type="<?php echo ($p == 0) ? 'text' : 'hidden' ?>" size="10" name="senha" value="<?php
                                    // Preenche o sigla no campo sigla com um valor "value"
                                    echo (isset($senha) && ($senha != null || $senha != "")) ? $senha : '';
                                    ?>"/>
                             <br/>
 
-                            Nome:
-                            <input class="form-control" type="text" size="50" name="nome" value="<?php
+                            <input placeholder="Nome" class="form-control" type="<?php echo ($p == 0) ? 'text' : 'hidden' ?>" size="50" name="nome" value="<?php
                                    // Preenche o nome no campo nome com um valor "value"
                                    echo (isset($nome) && ($nome != null || $nome != "")) ? $nome : '';
                                    ?>"/>
                             <br/>
 
-                            Email:
-                            <input class="form-control" type="email" size="50" name="email" value="<?php
+                            <input placeholder="Email" class="form-control" type="<?php echo ($p == 0) ? 'email' : 'hidden' ?>" size="50" name="email" value="<?php
                                    // Preenche o nome no campo nome com um valor "value"
                                    echo (isset($email) && ($email != null || $email != "")) ? $email : '';
                                    ?>"/>
                             <br/>
 
-                            Resetar:
-                            <input class="form-control" type="text" size="50" name="resetar" value="<?php
+                            <input placeholder="Resetar" class="form-control" type="<?php echo ($p == 0) ? 'text' : 'hidden' ?>" size="50" name="resetar" value="<?php
                                    // Preenche o nome no campo nome com um valor "value"
                                    echo (isset($resetar) && ($resetar != null || $resetar != "")) ? $resetar : '';
                                    ?>"/>
                             <br/>
 
-                            Perfil:
-                            <input class="form-control" type="text" size="50" name="perfil" value="<?php
+                            <input placeholder="Perfil" class="form-control" type="<?php echo ($p == 0) ? 'text' : 'hidden' ?>" size="50" name="perfil" value="<?php
                                    // Preenche o nome no campo nome com um valor "value"
                                    echo (isset($perfil) && ($perfil != null || $perfil != "")) ? $perfil : '';
                                    ?>"/>
                             <br/>
 
-                            <input class="btn btn-success" type="submit" value="CADASTRAR">
+                            <input class="btn btn-success" type="<?php echo ($p == 0) ? 'submit' : 'hidden' ?>" value="CADASTRAR">
                                 <hr>
                                     </form>
-
-
-<?php
-echo (isset($msg) && ($msg != null || $msg != "")) ? $msg : '';
-
-//chamada a paginação
-$object->tabelapaginada();
+ <?php
+    echo (isset($msg) && ($msg != null || $msg != "")) ? $msg : '';
+    if($p == 0){
+    //chamada a paginação
+    $object->tabelapaginada();
+    }
 ?>
+
+
                                     </div>
                                     </div>
                                     </div>
