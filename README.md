@@ -1,7 +1,7 @@
 # ECA-Colaborativo
 EconomiC-Analyzer: Trabalho Colaborativo | PDF + DASHBORD + EMAIL
 
-### Tasks
+## Tasks
 ##### 1. Criar o CRUD (MVC) para a base de dados do projeto
 
 ##### 2. Deve-se implementar no sistema ECA os seguintes relatórios:
