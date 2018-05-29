@@ -13,7 +13,7 @@ $passwd = $_POST['password'];
 $iduser = null;
 $name = null;
 $loginBanco = null;
-$senha = null;
+$senha = null; 
 $perfil = null;
 
 try {
