@@ -15,7 +15,7 @@ $name = null;
 $loginBanco = null;
 $senha = null; 
 $perfil = null;
-
+//Teste Comit
 try {
     $statement = $pdo->prepare("SELECT iduser, login, senha, nome, perfil FROM tb_user WHERE login = :login and senha = :senha; ");
     $statement->bindValue(":login", $login);
