@@ -18,15 +18,6 @@ $dao = new dashboardDAO();
 $objTotPag = $dao->totalPagamento();
 $objPag = $dao->pagUltimoMes();
 
-
-//var_dump($objBenef);
-
-$qtde_pag = $objTotPag->qtde_pag;
-$soma = $objPag->soma;
-$mes = $objPag->mes;
-$media = ($objPag->soma) / ($objPag->qtde);
-$totalBenef = $dao->totalBeneficiarios();  
-//var_dump($totalBenef);
 ?>
 
 <div class="content">
@@ -44,7 +35,7 @@ $totalBenef = $dao->totalBeneficiarios();
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Total de Pagamentos</p>
-                                    <?php $qtde_pag ?> 
+                                    <?php echo $objPag["qtde"] ?> 
                                 </div>
                             </div>
                         </div>
@@ -68,15 +59,15 @@ $totalBenef = $dao->totalBeneficiarios();
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers">
-                                    <p>Soma Pagamentos Último Mês</p>
-                                    <?php $soma ?> 
+                                    <p>Soma de Pagamentos</p>
+                                    <?php echo $objPag["soma"]; ?> 
                                 </div>
                             </div>
                         </div>
                         <div class="footer">
                             <hr/>
                             <div class="stats">
-                                <i class="ti-calendar"></i> Último mês <?php $mes ?>
+                                <i class="ti-calendar"></i> Último mês <?php echo $objPag["mes"].' / '. $objPag["ano"];?>
                             </div>
                         </div>
                     </div>
@@ -93,15 +84,15 @@ $totalBenef = $dao->totalBeneficiarios();
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers">
-                                    <p>Média Pagamentos</p>
-                                    <?php $media ?>
+                                    <p>Pagamentos Médios de</p>
+                                    <?php echo 'R$'.($objPag["soma"]  /  $objPag["qtde"]); ?>
                                 </div>
                             </div>
                         </div>
                         <div class="footer">
                             <hr/>
                             <div class="stats">
-                                <i class="ti-timer"></i> Último mês <?php $mes ?>
+                                <i class="ti-calendar"></i> Último mês <?php echo $objPag["mes"] .' / '. $objPag["ano"];?>
                             </div>
                         </div>
                     </div>
@@ -118,8 +109,8 @@ $totalBenef = $dao->totalBeneficiarios();
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers">
-                                    <p>Beneficiários</p>
-                                    <?php $dao->totalBeneficiarios() ?>
+                                    <p>Total de Beneficiários</p>
+                                    <?php echo $dao->totalBeneficiarios(); ?>
                                 </div>
                             </div>
                         </div>

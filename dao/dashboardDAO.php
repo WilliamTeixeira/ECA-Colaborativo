@@ -50,8 +50,16 @@ class dashboardDAO {
         try {
             $statement = $pdo->prepare('SELECT count(id_payment) qtde, sum(db_value) soma, int_month mes, int_year ano FROM tb_payments group by int_month having int_month = max(int_month) and int_year = max(int_year);');
             if ($statement->execute()) {
-                $obj = $statement->fetchAll(PDO::FETCH_OBJ);
-                return $obj;
+                $rs = $statement->fetchAll(PDO::FETCH_OBJ);
+                $array = array(
+                        'qtde' => $rs[0]->qtde,
+                        'soma' => $rs[0]->soma,
+                        'mes'  => $rs[0]->mes,
+                        'ano'  => $rs[0]->ano
+                        );
+                
+                return $array;
+               
             }else {
                 throw new PDOException("<script> alert('Erro: Não foi possível executar a declaração sql'); </script>");
             }
@@ -67,16 +75,13 @@ class dashboardDAO {
         try {
             $statement = $pdo->prepare('SELECT count(*) AS total FROM tb_beneficiaries;');
             if ($statement->execute()) {
-                $rs = $statement->fetch(PDO::FETCH_OBJ);
-                $obj->setTotalBenef($rs->total);
-                
-                //$rs = $statement->fetchAll(PDO::FETCH_OBJ);
-                //var_dump($rs);
-                //$obj = $rs[0];
-                //$total = $obj['total'];
-                //var_dump($obj);
-                var_dump($obj->getTotalBenef());
-                return $obj;
+                $rs = $statement->fetchAll(PDO::FETCH_ASSOC);
+                $total;
+                foreach ($rs as $value) {
+                    if($value['total'])
+                        $total = $value['total'];
+                }
+                return $total;
             }else {
                 throw new PDOException("<script> alert('Erro: Não foi possível executar a declaração sql'); </script>");
             }
