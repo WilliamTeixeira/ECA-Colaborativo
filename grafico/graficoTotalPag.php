@@ -1,9 +1,9 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: tassio
- * Date: 09/01/2018
- * Time: 09:49
+ * Description of subfunctionsDAO
+ *
+ * @author wtx
  */
 
 require_once "../lib/PHPlot/phplot.php";
@@ -25,6 +25,7 @@ inner join tb_city c
 inner join tb_state s 
 where p.tb_city_id_city = c.id_city and c.tb_state_id_state = s.id_state
 group by s.id_state ;";
+
 $statement = $pdo->prepare($query);
 //$statement->bindValue(":id", $id);
 $statement->execute();

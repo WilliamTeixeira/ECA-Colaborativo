@@ -6,13 +6,27 @@
  */
 
 require_once "classes/template.php";
+require_once "dao/dashboardDAO.php";
 
 $template = new Template();
-
 $template->header();
 $template->sidebar();
 $template->mainpanel();
 
+$dao = new dashboardDAO();
+
+$objTotPag = $dao->totalPagamento();
+$objPag = $dao->pagUltimoMes();
+
+
+//var_dump($objBenef);
+
+$qtde_pag = $objTotPag->qtde_pag;
+$soma = $objPag->soma;
+$mes = $objPag->mes;
+$media = ($objPag->soma) / ($objPag->qtde);
+$totalBenef = $dao->totalBeneficiarios();  
+//var_dump($totalBenef);
 ?>
 
 <div class="content">
@@ -29,15 +43,15 @@ $template->mainpanel();
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers">
-                                    <p>Capacity</p>
-                                    105GB
+                                    <p>Total de Pagamentos</p>
+                                    <?php $qtde_pag ?> 
                                 </div>
                             </div>
                         </div>
                         <div class="footer">
                             <hr/>
                             <div class="stats">
-                                <i class="ti-reload"></i> Updated now
+                                <i class="ti-reload"></i> Pagamentos até o momento
                             </div>
                         </div>
                     </div>
@@ -54,15 +68,15 @@ $template->mainpanel();
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers">
-                                    <p>Revenue</p>
-                                    $1,345
+                                    <p>Soma Pagamentos Último Mês</p>
+                                    <?php $soma ?> 
                                 </div>
                             </div>
                         </div>
                         <div class="footer">
                             <hr/>
                             <div class="stats">
-                                <i class="ti-calendar"></i> Last day
+                                <i class="ti-calendar"></i> Último mês <?php $mes ?>
                             </div>
                         </div>
                     </div>
@@ -79,15 +93,15 @@ $template->mainpanel();
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers">
-                                    <p>Errors</p>
-                                    23
+                                    <p>Média Pagamentos</p>
+                                    <?php $media ?>
                                 </div>
                             </div>
                         </div>
                         <div class="footer">
                             <hr/>
                             <div class="stats">
-                                <i class="ti-timer"></i> In the last hour
+                                <i class="ti-timer"></i> Último mês <?php $mes ?>
                             </div>
                         </div>
                     </div>
@@ -104,15 +118,15 @@ $template->mainpanel();
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers">
-                                    <p>Followers</p>
-                                    +45
+                                    <p>Beneficiários</p>
+                                    <?php $dao->totalBeneficiarios() ?>
                                 </div>
                             </div>
                         </div>
                         <div class="footer">
                             <hr/>
                             <div class="stats">
-                                <i class="ti-reload"></i> Updated now
+                                <i class="ti-reload"></i> Total
                             </div>
                         </div>
                     </div>
