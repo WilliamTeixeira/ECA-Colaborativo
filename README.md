@@ -15,11 +15,11 @@ EconomiC-Analyzer: Trabalho Colaborativo | PDF + DASHBORD + EMAIL
 
 
 ##### Pendente  - 3. Deve-se implementar no sistema ECA os seguintes gráficos e informações na página ‘dashboard.php’:
-* 3.1 Informações:
-*   a) A informação do total de pagamento já realizado;
-*   b) O valor total da soma dos pagamentos do último mês;
-*   c) A média dos pagamentos do último mês;
-*   d) O total de beneficiários de programa;
+* Concluído - 3.1 Informações:
+**   a) A informação do total de pagamento já realizado;
+**   b) O valor total da soma dos pagamentos do último mês;
+**   c) A média dos pagamentos do último mês;
+**   d) O total de beneficiários de programa;
 * 3.2 Um gráfico contendo a série histórica, com o total de beneficiário por mês, por ano; (Line Plot)
 * 3.3 Um gráfico contendo o total de beneficiário por mês, por estado; (Bar Chart with Data Value Labels)
 * 3.4 Um gráfico contendo o total de valores pagos por mês, por estado; (Pie Chart, text-data-single)	
