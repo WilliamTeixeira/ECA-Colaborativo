@@ -42,7 +42,7 @@ $template->mainpanel();
                         $relatorioselecionado = $_POST['relatoriosDisponiveis'];
                         if ($relatorioselecionado=="relatorioNulo"){ 
                            echo "Por favor selecione um relatorio da lista a cima!";
-                        }else if ($relatorioselecionado=="relatorio01"){ 
+                        }else { 
                              echo "<script>script:window.open('http://localhost/PHP/ECA-Colaborativo/relatorio/".$relatorioselecionado.".php', '_blank');</script>";
                         }
                         echo (isset($msg) && ($msg != null || $msg != "")) ? $msg : '';
