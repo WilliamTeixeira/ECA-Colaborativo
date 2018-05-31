@@ -4,9 +4,7 @@
  *
  * @author willi
  */
-
 require_once "db/conexao.php";
-require_once "classes/dashboard.php";
 
 class dashboardDAO {
     
@@ -70,7 +68,6 @@ class dashboardDAO {
     
     public function totalBeneficiarios()
     {
-        $obj = new dashboard();
         global $pdo;
         try {
             $statement = $pdo->prepare('SELECT count(*) AS total FROM tb_beneficiaries;');

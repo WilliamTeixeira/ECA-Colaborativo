@@ -30,7 +30,6 @@ class userDAO
     public function salvar($user)
     {
         global $pdo;
-        $senha = $_POST['senha'];
         try {
             if ($user->getIdUsuario() != "") {
                 $statement = $pdo->prepare("UPDATE tb_user SET login=:login, senha=:senha, nome=:nome, email=:email, resetar=:resetar, perfil=:perfil WHERE iduser = :id;");
@@ -39,7 +38,7 @@ class userDAO
                 $statement = $pdo->prepare("INSERT INTO tb_user (login, senha, nome, email, resetar, perfil) VALUES (:login, :senha, :nome, :email, :resetar, :perfil)");
             }
             $statement->bindValue(":login", $user->getLogin());
-            $statement->bindValue(":senha", sha1($senha));
+            $statement->bindValue(":senha", sha1($user->getSenha()));
             $statement->bindValue(":nome", $user->getNome());
             $statement->bindValue(":email", $user->getEmail());
             $statement->bindValue(":resetar", $user->getResetar());
