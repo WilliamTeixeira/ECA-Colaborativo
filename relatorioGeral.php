@@ -20,7 +20,7 @@ $template->mainpanel();
                     </div>
 
                     <div class='content table-responsive'>
-                        <form method="POST" name="form1">                          
+                        <form method="POST" name="form">                          
                             Tipo de relatorio:
                             <select class="form-control" name="relatoriosDisponiveis">
                                 <option value="relatorioNulo">Selecione um relatorio</option>
@@ -45,11 +45,9 @@ $template->mainpanel();
                             if ($relatorioselecionado=="relatorioNulo"){ 
                                 echo "Por favor selecione um relatorio da lista a cima!";
                             }else { 
-                                echo "<script>script:window.open('http://localhost/PHP/ECA-Colaborativo/relatorio/".$relatorioselecionado.".php', '_blank');</script>";
+                                echo "<script>script:window.open('relatorio/".$relatorioselecionado.".php', '_blank');</script>";
+                            }                        
                         }
-                        
-                        }
-                        echo (isset($msg) && ($msg != null || $msg != "")) ? $msg : '';
                         ?>
                   
                     </div>
