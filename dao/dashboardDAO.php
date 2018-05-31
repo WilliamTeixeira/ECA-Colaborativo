@@ -14,8 +14,12 @@ class dashboardDAO {
         try {
             $statement = $pdo->prepare('SELECT count(id_payment) as qtde_pag, sum(db_value) as total_pag FROM tb_payments;');
             if ($statement->execute()) {
-                $obj = $statement->fetchAll(PDO::FETCH_OBJ);
-                return $obj;
+                $rs = $statement->fetchAll(PDO::FETCH_OBJ);
+                $array = array(
+                        'qtde' => $rs[0]->qtde_pag,
+                        'soma' => $rs[0]->total_pag
+                        );
+                return $array;
             }else {
                 throw new PDOException("<script> alert('Erro: Não foi possível executar a declaração sql'); </script>");
             }
@@ -30,6 +34,7 @@ class dashboardDAO {
         try {
             $statement = $pdo->prepare('SELECT sum(db_value) as soma_pag FROM tb_payments where int_month = :month;');
             $date = getdate();
+            echo $date;
             $statement->bindValue(":month", $date['mon']);
             if ($statement->execute()) {
                 $obj = $statement->fetchAll(PDO::FETCH_OBJ);
@@ -46,7 +51,9 @@ class dashboardDAO {
     {
         global $pdo;
         try {
-            $statement = $pdo->prepare('SELECT count(id_payment) qtde, sum(db_value) soma, int_month mes, int_year ano FROM tb_payments group by int_month having int_month = max(int_month) and int_year = max(int_year);');
+            $sql = 'SELECT count(id_payment) qtde, sum(db_value) soma, int_month mes, int_year ano 
+                    FROM tb_payments group by int_month, int_year order by int_year desc, int_month desc limit 1;';
+            $statement = $pdo->prepare($sql);
             if ($statement->execute()) {
                 $rs = $statement->fetchAll(PDO::FETCH_OBJ);
                 $array = array(

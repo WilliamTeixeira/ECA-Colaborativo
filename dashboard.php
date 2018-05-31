@@ -7,6 +7,7 @@
 
 require_once "classes/template.php";
 require_once "dao/dashboardDAO.php";
+//require_once 'grafico/graficoTotalBenefMes.php';
 
 $template = new Template();
 $template->header();
@@ -35,7 +36,7 @@ $objPag = $dao->pagUltimoMes();
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Total de Pagamentos</p>
-                                    <?php echo $objPag["qtde"] ?> 
+                                    <small><?php echo 'R$' . number_format($objTotPag["soma"],2,".","") ?></small> 
                                 </div>
                             </div>
                         </div>
@@ -60,7 +61,7 @@ $objPag = $dao->pagUltimoMes();
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Soma de Pagamentos</p>
-                                    <?php echo $objPag["soma"]; ?> 
+                                    <small><?php echo 'R$'. number_format($objPag["soma"],2,".",""); ?></small> 
                                 </div>
                             </div>
                         </div>
@@ -85,7 +86,7 @@ $objPag = $dao->pagUltimoMes();
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Pagamentos Médios de</p>
-                                    <?php echo 'R$'.($objPag["soma"]  /  $objPag["qtde"]); ?>
+                                    <small><?php echo 'R$'. number_format($objPag["soma"]  /  $objPag["qtde"], 2, ',', ' '); ?></small>
                                 </div>
                             </div>
                         </div>
@@ -110,7 +111,7 @@ $objPag = $dao->pagUltimoMes();
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Total de Beneficiários</p>
-                                    <?php echo $dao->totalBeneficiarios(); ?>
+                                    <small> <?php echo $dao->totalBeneficiarios(); ?></small>
                                 </div>
                             </div>
                         </div>
@@ -129,11 +130,13 @@ $objPag = $dao->pagUltimoMes();
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Users Behavior</h4>
-                        <p class="category">24 Hours performance</p>
+                        <h4 class="title">Beneficiários</h4>
+                        <p class="category">Total de Beneficiários</p>
                     </div>
                     <div class="content">
-                        <div id="chartHours" class="ct-chart"></div>
+                        
+                        <img id="totalbenefmes" src="grafico/graficoTotalBenefMes.php">
+                        
                         <div class="footer">
                             <div class="chart-legend">
                                 <i class="fa fa-circle text-info"></i> Open
