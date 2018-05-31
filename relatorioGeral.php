@@ -2,11 +2,6 @@
 
 require_once "classes/template.php";
 
-//require_once "dao/cityDAO.php";
-//require_once "classes/city.php";
-
-//$object = new cityDAO();
-
 $template = new Template();
 
 $template->header();
@@ -22,25 +17,20 @@ $template->mainpanel();
                     <div class='header'>
                         <h4 class='title'>Relatorio</h4>
                         <p class='category'>Lista de relatorios do sistema</p>
-
                     </div>
+
                     <div class='content table-responsive'>
-
-                        <form action="?act=save&id=" method="POST" name="form1">
-
-                            <input type="hidden" name="id" value="<?php
-                            // Preenche o id no campo id com um valor "value"
-                            echo (isset($id) && ($id != null || $id != "")) ? $id : '';
-                            ?>"/>
+                        <form method="POST" name="form1">                          
                             Tipo de relatorio:
                             <select class="form-control" name="relatoriosDisponiveis">
-                                <option value="relatorio1">Lista de todos os beneficiários</option>
-                                <option value="relatorio2">Lista de todos os beneficiários juntamente com a cidade</option>
-                                <option value="relatorio3">Lista com todos os pagamentos</option>
-                                <option value="relatorio4">Lista com o número de beneficiários jutamente com cidade e o valor pago por mês</option>
-                                <option value="relatorio5">Lista com a soma de vezes que o beneficiário ganhou auxiloi juntamente com os meses e os valores</option>
-                                <option value="relatorio6">Lista com o total de pagamentos por região</option>
-                                <option value="relatorio7">Lista com o total de pagamentos por estado</option>
+                                <option value="relatorioNulo">Selecione um relatorio</option>
+                                <option value="relatorio01">Lista de todos os beneficiários</option>
+                                <option value="relatorio02">Lista de todos os beneficiários juntamente com a cidade</option>
+                                <option value="relatorio03">Lista com todos os pagamentos</option>
+                                <option value="relatorio04">Lista com o número de beneficiários jutamente com cidade e o valor pago por mês</option>
+                                <option value="relatorio05">Lista com a soma de vezes que o beneficiário ganhou auxiloi juntamente com os meses e os valores</option>
+                                <option value="relatorio06">Lista com o total de pagamentos por região</option>
+                                <option value="relatorio07">Lista com o total de pagamentos por estado</option>
                             </select>
                             <br/>
 
@@ -49,28 +39,15 @@ $template->mainpanel();
                         </form>
                         
                         <?php
-                        
                         $relatorioselecionado = $_POST['relatoriosDisponiveis'];
-                        var_dump($relatorioselecionado);
-                        if ($relatorioselecionado=="relatorio1") { 
-                            //http://localhost/PHP/ECA-Colaborativo/relatorio/relatorio01.php
-                        }else if ($relatorioselecionado=="relatorio2") { 
-                            
-                        }else if ($relatorioselecionado=="relatorio3") { 
-                            
-                        }else if ($relatorioselecionado=="relatorio4") { 
-                            
-                        }else if ($relatorioselecionado=="relatorio5") { 
-                            
-                        }else if ($relatorioselecionado=="relatorio6") { 
-                            
-                        }else if ($relatorioselecionado=="relatorio7") { 
-                            
+                        if ($relatorioselecionado=="relatorioNulo"){ 
+                           echo "Por favor selecione um relatorio da lista a cima!";
+                        }else if ($relatorioselecionado=="relatorio01"){ 
+                             echo "<script>script:window.open('http://localhost/PHP/ECA-Colaborativo/relatorio/".$relatorioselecionado.".php', '_blank');</script>";
                         }
-
                         echo (isset($msg) && ($msg != null || $msg != "")) ? $msg : '';
-
                         ?>
+                  
                     </div>
                 </div>
             </div>
