@@ -1,7 +1,7 @@
 <?php
 /**
  * Description of graficoTotalBenefMes
- * 1. Série histórica, com o total de beneficiário por mês, por ano (Line Plot)
+ * Série histórica, com o total de beneficiário por mês, por ano (Line Plot)
  * 
  * @author wtx
  */
