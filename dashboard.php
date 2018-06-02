@@ -134,18 +134,12 @@ $objPag = $dao->pagUltimoMes();
                         <p class="category">Total de Beneficiários</p>
                     </div>
                     <div class="content">
-                        
                         <img id="totalbenefmes" src="grafico/graficoTotalBenefMes.php">
-                        
                         <div class="footer">
                             <div class="chart-legend">
-                                <i class="fa fa-circle text-info"></i> Open
-                                <i class="fa fa-circle text-danger"></i> Click
-                                <i class="fa fa-circle text-warning"></i> Click Second Time
-                            </div>
-                            <hr>
-                            <div class="stats">
-                                <i class="ti-reload"></i> Updated 3 minutes ago
+                                <i class="fa fa-circle text-info"></i> 
+                                <i class="fa fa-circle text-danger"></i> 
+                                <i class="fa fa-circle text-warning"></i> 
                             </div>
                         </div>
                     </div>
@@ -156,21 +150,16 @@ $objPag = $dao->pagUltimoMes();
             <div class="col-md-6">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Email Statistics</h4>
-                        <p class="category">Last Campaign Performance</p>
+                        <h4 class="title">Beneficiários</h4>
+                        <p class="category">Total de beneficiário por mês e estado</p>
                     </div>
                     <div class="content">
-                        <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
-
+                        <img width="450" height="300" id="totalPagEstado" src="grafico/graficoTotalBenefEstado.php">
                         <div class="footer">
                             <div class="chart-legend">
-                                <i class="fa fa-circle text-info"></i> Open
-                                <i class="fa fa-circle text-danger"></i> Bounce
-                                <i class="fa fa-circle text-warning"></i> Unsubscribe
-                            </div>
-                            <hr>
-                            <div class="stats">
-                                <i class="ti-timer"></i> Campaign sent 2 days ago
+                                <i class="fa fa-circle text-info"></i> 
+                                <i class="fa fa-circle text-danger"></i> 
+                                <i class="fa fa-circle text-warning"></i> 
                             </div>
                         </div>
                     </div>
@@ -179,20 +168,16 @@ $objPag = $dao->pagUltimoMes();
             <div class="col-md-6">
                 <div class="card ">
                     <div class="header">
-                        <h4 class="title">2015 Sales</h4>
-                        <p class="category">All products including Taxes</p>
+                        <h4 class="title">Valores</h4>
+                        <p class="category">Total de valores pagos por estado</p>
                     </div>
                     <div class="content">
-                        <div id="chartActivity" class="ct-chart"></div>
-
+                         <img width="450" height="300" id="totalPagEstado" src="grafico/graficoTotalPagEstado.php">
                         <div class="footer">
                             <div class="chart-legend">
-                                <i class="fa fa-circle text-info"></i> Tesla Model S
-                                <i class="fa fa-circle text-warning"></i> BMW 5 Series
-                            </div>
-                            <hr>
-                            <div class="stats">
-                                <i class="ti-check"></i> Data information certified
+                                <i class="fa fa-circle text-info"></i> 
+                                <i class="fa fa-circle text-danger"></i> 
+                                <i class="fa fa-circle text-warning"></i> 
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,8 @@
 <?php
 /**
- * Description of subfunctionsDAO
- *
+ * Description of graficoTotalBenefMes
+ * Série histórica, com o total de beneficiário por mês, por ano (Line Plot)
+ * 
  * @author wtx
  */
 

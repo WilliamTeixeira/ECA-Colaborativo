@@ -20,10 +20,10 @@ EconomiC-Analyzer: Trabalho Colaborativo | PDF + DASHBORD + EMAIL
 * Concluído  -   b) O valor total da soma dos pagamentos do último mês;
 * Concluído  -   c) A média dos pagamentos do último mês;
 * Concluído  -   d) O total de beneficiários de programa;
-* 3.2 Um gráfico contendo a série histórica, com o total de beneficiário por mês, por ano; (Line Plot)
-* 3.3 Um gráfico contendo o total de beneficiário por mês, por estado; (Bar Chart with Data Value Labels)
-* 3.4 Um gráfico contendo o total de valores pagos por mês, por estado; (Pie Chart, text-data-single)	
-* 3.5 Todos os gráficos devem ser exportáveis em PDF.
+* Concluído  -   3.2 Um gráfico contendo a série histórica, com o total de beneficiário por mês, por ano; (Line Plot)
+* Concluído  -   3.3 Um gráfico contendo o total de beneficiário por mês, por estado; (Bar Chart with Data Value Labels)
+* Concluído  -   3.4 Um gráfico contendo o total de valores pagos por mês, por estado; (Pie Chart, text-data-single)	
+* Pendente  -   3.5 Todos os gráficos devem ser exportáveis em PDF.
 
 
 #####  Pendente  - 4. Modifique o sistema ECA para utilizar o composer e gerenciar as bibliotecas de dependência (PDF e Gráfico).
