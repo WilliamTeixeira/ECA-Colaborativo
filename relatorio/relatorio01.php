@@ -10,6 +10,8 @@ require_once "../dao/relatorioDAO.php";
 $dao = new relatorioDAO();
 
 $listObjs = $dao->relatorio01();
+$dia = $dao ->dataAtual();
+$hr = $dao ->horaAtual();
 
 $html = "<table border='1' cellspacing='3' cellpadding='4' >";
 $html .= "<tr>
@@ -25,17 +27,18 @@ foreach ($listObjs as $var):
           </tr>";
 endforeach;
 $html .= "</table>";
+$html .= "<p>Relatório gerado no dia $dia às $hr</p>";
 
 $mpdf=new mPDF();
 $mpdf->SetCreator(PDF_CREATOR);
-$mpdf->SetAuthor('Tassio Sirqueira');
-$mpdf->SetTitle('TCPDF Exemplo');
-$mpdf->SetSubject('TCPDF Aula');
-$mpdf->SetKeywords('TCPDF, PDF, exemplo');
+$mpdf->SetAuthor('Hugo Nogueira Pinto');
+$mpdf->SetTitle('Relatório PDF com a lista de todos os beneficiários e seus respectivos dados em ordem alfabética');
+$mpdf->SetSubject('Sistema EconomiC Analyzer');
+$mpdf->SetKeywords('TCPDF, PDF, trabalho PHP');
 $mpdf->SetDisplayMode('fullpage');
 $mpdf->nbpgPrefix = ' de ';
 $mpdf->setFooter('Página {PAGENO}{nbpg}');
 $mpdf->WriteHTML($html);
-$mpdf->Output('Exemplo.pdf','I');
+$mpdf->Output('economicAnalyzer.pdf','I');
 
 exit;

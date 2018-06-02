@@ -74,6 +74,22 @@ class relatorioDAO
         }
     }
     
+    public function relatorio05()
+    {
+        global $pdo;
+        try {
+            $statement = $pdo->prepare("SELECT distinct(B.str_name_person) as tb_beneficiaries, count(P.tb_beneficiaries_id_beneficiaries) AS QTD,sum(P.db_value) AS SOMA,P.int_month,P.int_year  FROM tb_payments P INNER JOIN tb_beneficiaries B ON tb_beneficiaries_id_beneficiaries = id_beneficiaries GROUP BY P.tb_beneficiaries_id_beneficiaries,P.int_month,P.int_year");
+            if ($statement->execute()) {
+                $lista = $statement->fetchAll(PDO::FETCH_OBJ);
+                return $lista;
+            }else {
+                throw new PDOException("<script> alert('Erro: Não foi possível executar a declaração sql'); </script>");
+            }
+        }catch (PDOException $erro) {
+            return "Erro: " . $erro->getMessage();
+        }
+    }
+    
     public function relatorio06()
     {
         global $pdo;
@@ -105,4 +121,16 @@ class relatorioDAO
             return "Erro: " . $erro->getMessage();
         }
     }
+    
+    public function dataAtual(){
+        date_default_timezone_set('America/Sao_Paulo');
+        $obj = date('d-m-Y');
+        return $obj;
+    }   
+    
+    public function horaAtual(){
+        date_default_timezone_set('America/Sao_Paulo');
+        $horaAtual = date('H:i');
+        return $horaAtual;
+    }  
 }
