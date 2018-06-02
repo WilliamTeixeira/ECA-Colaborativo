@@ -31,20 +31,12 @@ if(isset($resultado)) {
 } else {
     $data[]=[null,null];
 }
-
-/*$data = array(
-  array('China', 1306.31),           array('India', 1080.26),
-  array('United States',  295.73),   array('Indonesia', 241.97),
-  array('Brazil', 186.11),           array('Pakistan', 162.42),
-  array('Bangladesh', 144.32),       array('Russia', 143.42),
-);
-*/
 $grafico = new PHPlot(800, 400);
 $grafico->SetImageBorderType('plain');
 $grafico->SetPlotType('bars');
 $grafico->SetDataType('text-data');
 $grafico->SetDataValues($data);
-$grafico->SetTitle("World's Most Populous Countries\n2005 Population in Millions");
+$grafico->SetTitle("Total de beneficiário por mês e por estado");
 
 # Turn off X tick labels and ticks because they don't apply here:
 $grafico->SetXTickLabelPos('none');
@@ -67,3 +59,6 @@ $grafico->SetYTickPos('none');
 $grafico->SetPrecisionY(1);
 
 $grafico->DrawGraph();
+
+return $grafico->EncodeImage('base64');
+
