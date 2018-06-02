@@ -1,0 +1,16 @@
+{
+    "name": "wtx/eca-colaborativo",
+    "description": "Libs do projeto ECA-Colaborativo",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "WilliamTeixeira",
+            "email": "tx.william@gmail.com"
+        }
+    ],
+    "require": {
+        "davefx/phplot": "^6.2",
+        "phpmailer/phpmailer": "^6.0",
+        "mpdf/mpdf": "^7.1"
+    }
+}
