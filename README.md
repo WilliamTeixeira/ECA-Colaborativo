@@ -26,8 +26,8 @@ EconomiC-Analyzer: Trabalho Colaborativo | PDF + DASHBORD + EMAIL
 * Pendente  -   3.5 Todos os gráficos devem ser exportáveis em PDF.
 
 
-#####  Pendente  - 4. Modifique o sistema ECA para utilizar o composer e gerenciar as bibliotecas de dependência (PDF e Gráfico).
+#####  Concluído - 4. Modifique o sistema ECA para utilizar o composer e gerenciar as bibliotecas de dependência (PDF e Gráfico).
 #####  Concluído - 5. Implemente um sistema de login, senha e perfil, onde todas as páginas só podem ser acessadas por usuários logados e o acesso se dará pelo perfil.
 #####  Concluído - 6. Implemente um sistema de recuperação de login por e-mail.
 #####  Concluído - 7. O sistema deve possuir dois perfis, um ‘adm’ e um ‘user’, somente os usuários ‘adm’ poderão ter acesso ao menu ‘User’, responsável por administrar os usuários do sistema, os usuários com perfil ‘user’ podem utilizar todo o sistema, exceto gerenciar seus usuários.
-#####  Pendente  - 8. Acrescente em todos os relatórios do sistema a data e hora de sua geração.
+#####  Concluído - 8. Acrescente em todos os relatórios do sistema a data e hora de sua geração.
