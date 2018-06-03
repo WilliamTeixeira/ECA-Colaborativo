@@ -5,8 +5,8 @@
  * 
  * @author wtx
  */
-
-require_once "../lib/PHPlot/phplot.php";
+require_once  "../vendor/autoload.php";
+//require_once "../vendor/davefx/PHPlot/PHPlot/phplot.php";
 require_once "../db/conexao.php";
 
 $query = "SELECT s.str_name estado, sum(p.tb_beneficiaries_id_beneficiaries) qtde, p.int_month mes
@@ -26,17 +26,18 @@ foreach ($rs as $value) {
 
 if(isset($resultado)) {
     foreach ($resultado as $r){
-        $data[] = [$r['estado'] . ' mes: ' . $r['mes'], $r['qtde']];
+        $data[] = [utf8_decode($r['estado']) . ' mes: ' . $r['mes'], $r['qtde']];
     }
 } else {
     $data[]=[null,null];
 }
-$grafico = new PHPlot(800, 400);
+$grafico = new \PHPlot(800,400);
+//$grafico = new PHPlot(800, 400);
 $grafico->SetImageBorderType('plain');
 $grafico->SetPlotType('bars');
 $grafico->SetDataType('text-data');
 $grafico->SetDataValues($data);
-$grafico->SetTitle("Total de beneficiário por mês e por estado");
+$grafico->SetTitle(utf8_decode("Total de beneficiários por mes e por estado"));
 
 # Turn off X tick labels and ticks because they don't apply here:
 $grafico->SetXTickLabelPos('none');

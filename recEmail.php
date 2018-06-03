@@ -6,17 +6,16 @@
  */
 
 set_time_limit(60);
-
-require "lib/PHPMailer/src/PHPMailer.php";
-require "lib/PHPMailer/src/SMTP.php";
-require "lib/PHPMailer/src/Exception.php";
+require_once  "vendor/autoload.php";
+//require "vendor/PHPMailer/PHPMailer/src/PHPMailer.php";
+//require "vendor/PHPMailer/PHPMailer/src/SMTP.php";
+//require "vendor/PHPMailer/PHPMailer/src/Exception.php";
 require_once 'dao/userDAO.php';
 
-use PHPMailer\PHPMailer\PHPMailer;
+//use PHPMailer\PHPMailer\PHPMailer;
 
 $object = new userDAO();
-$mail = new PHPMailer;
-
+$mail = new \PHPMailer\PHPMailer\PHPMailer();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $login = (isset($_POST["login"]) && $_POST["login"] != null) ? $_POST["login"] : "";
@@ -41,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $mail->SMTPAuth = true;
 
-        $mail->Username = "wtxphpmail@gmail.com";
+        $mail->Username = "tx.william@gmail.com";
         $mail->Password = "senha";
 
 

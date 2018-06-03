@@ -6,11 +6,13 @@
  * Time: 09:49
  */
 
-require_once "../lib/PHPlot/phplot.php";
+require_once  "../vendor/autoload.php";
+
+//require_once "../lib/PHPlot/phplot.php";
 require_once "../db/conexao.php";
 
 #Instancia o objeto e setando o tamanho do grafico na tela
-$grafico = new PHPlot(500,200);
+$grafico = new \PHPlot(500,200);
 
 #Indicamos o títul do gráfico e o título dos dados no eixo X e Y do mesmo
 $grafico->SetTitle("Valor por Estado");

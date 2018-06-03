@@ -6,15 +6,18 @@
  * @author wtx
  */
 
-require_once "../lib/PHPlot/phplot.php";
+require_once  "../vendor/autoload.php";
+//require_once "../lib/PHPlot/phplot.php";
 require_once "../db/conexao.php";
 
 #Instancia o objeto e setando o tamanho do grafico na tela
-$grafico = new PHPlot(900,300);
+$grafico = new \PHPlot(900,300);
 #Indicamos o títul do gráfico e o título dos dados no eixo X e Y do mesmo
-$grafico->SetTitle("Beneficiarios por Mes e Ano");
-$grafico->SetXTitle("Mes e Ano");
-$grafico->SetYTitle("Numero Beneficiarios");
+$grafico->SetTitle(utf8_decode("Beneficiários por Mes e Ano"));
+//$grafico->SetTitle("Beneficiários por Mês e Ano");
+$grafico->SetXTitle(utf8_decode("Mes e Ano"));
+
+$grafico->SetYTitle(utf8_decode("Número Beneficiários"));
 
 $query = "SELECT count(tb_beneficiaries_id_beneficiaries )as qtde, int_month as mes, int_year as ano
           FROM tb_payments group by int_month, int_year order by int_year asc, int_month asc;";

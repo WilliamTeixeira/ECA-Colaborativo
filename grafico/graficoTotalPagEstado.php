@@ -5,8 +5,8 @@
  * 
  * @author wtx
  */
-
-require_once "../lib/PHPlot/phplot.php";
+require_once  "../vendor/autoload.php";
+//require_once "../lib/PHPlot/phplot.php";
 require_once "../db/conexao.php";
 
 $query = "SELECT s.str_name estado, sum(p.db_value) valor
@@ -36,7 +36,7 @@ if(isset($resultado)) {
     $data[]=[null,null,null];
 }
 
-$grafico = new PHPlot(800,600);
+$grafico = new \PHPlot(800,600);
 $grafico->SetImageBorderType('plain');
 
 $grafico->SetPlotType('pie');
@@ -61,7 +61,7 @@ $grafico->SetTitle("Total de valores pagos por estado");
 # Build a legend from our data array.
 # Each call to SetLegend makes one line as "label: value".
 foreach ($data as $row)
-  $grafico->SetLegend(implode(': ', $row));
+  $grafico->SetLegend(utf8_decode(implode(': ', $row)));
 # Place the legend in the upper left corner:
 $grafico->SetLegendPixels(5, 5);
 
