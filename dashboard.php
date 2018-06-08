@@ -1,13 +1,12 @@
 <?php
 /**
- * Description of subfunctionsDAO
+ * Description of dashboard
  *
  * @author wtx
  */
 
 require_once "classes/template.php";
 require_once "dao/dashboardDAO.php";
-//require_once 'grafico/graficoTotalBenefMes.php';
 
 $template = new Template();
 $template->header();
@@ -21,175 +20,194 @@ $objPag = $dao->pagUltimoMes();
 
 ?>
 
-<div class="content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-3 col-sm-6">
-                <div class="card">
-                    <div class="content">
-                        <div class="row">
-                            <div class="col-xs-5">
-                                <div class="icon-big icon-warning text-center">
-                                    <i class="ti-server"></i>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-warning text-center">
+                                            <i class="ti-server"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Payments</p>
+                                            <small><?php echo 'R$' . number_format($objTotPag["soma"],2,",","") ?></small> 
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xs-7">
-                                <div class="numbers">
-                                    <p>Total de Pagamentos</p>
-                                    <small><?php echo 'R$' . number_format($objTotPag["soma"],2,".","") ?></small> 
+                                <div class="footer">
+                                    <hr/>
+                                    <div class="stats">
+                                        <i class="ti-info"></i> Total sum
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="footer">
-                            <hr/>
-                            <div class="stats">
-                                <i class="ti-reload"></i> Pagamentos até o momento
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-success text-center">
+                                            <i class="ti-wallet"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Payments</p>
+                                            <small><?php echo 'R$'. number_format($objPag["soma"],2,",",""); ?></small> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr/>
+                                    <div class="stats">
+                                        <i class="ti-calendar"></i> Last Month <?php echo $objPag["mes"].' / '. $objPag["ano"];?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-danger text-center">
+                                            <i class="ti-pulse"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Average</p>
+                                            <small><?php echo 'R$'. number_format($objPag["soma"]  /  $objPag["qtde"], 2, ',', ' '); ?></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr/>
+                                    <div class="stats">
+                                        <i class="ti-timer"></i> In the last month <?php echo $objPag["mes"] .' / '. $objPag["ano"];?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-info text-center">
+                                            <i class="ti-user"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Beneficiaries</p>
+                                            <small> <?php echo $dao->totalBeneficiarios(); ?></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr/>
+                                    <div class="stats">
+                                        <i class="ti-info"></i> Total
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="card">
-                    <div class="content">
-                        <div class="row">
-                            <div class="col-xs-5">
-                                <div class="icon-big icon-success text-center">
-                                    <i class="ti-wallet"></i>
-                                </div>
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Monthly beneficiaries</h4>
+                                <p class="category">Every year</p>
                             </div>
-                            <div class="col-xs-7">
-                                <div class="numbers">
-                                    <p>Soma de Pagamentos</p>
-                                    <small><?php echo 'R$'. number_format($objPag["soma"],2,".",""); ?></small> 
+                            <div class="content">
+                                
+                                <div id="chartHours" class="ct-chart">
+                                    <img id="totalbenefmes" src="grafico/graficoTotalBenefMes.php">
                                 </div>
-                            </div>
-                        </div>
-                        <div class="footer">
-                            <hr/>
-                            <div class="stats">
-                                <i class="ti-calendar"></i> Último mês <?php echo $objPag["mes"].' / '. $objPag["ano"];?>
+                                <div class="footer">
+                                    <div class="chart-legend">
+                                        <i class="fa fa-circle text-info"></i> Value
+                                        <i class="fa fa-circle text-danger"></i> Value
+                                        <i class="fa fa-circle text-warning"></i> Value
+                                    </div>
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="ti-info-alt"></i> Historic Serie | <i class="ti-export"></i><a> Export PDF</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="card">
-                    <div class="content">
-                        <div class="row">
-                            <div class="col-xs-5">
-                                <div class="icon-big icon-danger text-center">
-                                    <i class="ti-pulse"></i>
-                                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Beneficiaries by state</h4>
+                                <p class="category">Monthly update</p>
                             </div>
-                            <div class="col-xs-7">
-                                <div class="numbers">
-                                    <p>Pagamentos Médios de</p>
-                                    <small><?php echo 'R$'. number_format($objPag["soma"]  /  $objPag["qtde"], 2, ',', ' '); ?></small>
+                            <div class="content">
+                                <div id="chartPreferences" class="ct-chart ct-perfect-fourth">
+                                    <img width="450" height="300" id="totalPagEstado" src="grafico/graficoTotalBenefEstado.php">
                                 </div>
-                            </div>
-                        </div>
-                        <div class="footer">
-                            <hr/>
-                            <div class="stats">
-                                <i class="ti-calendar"></i> Último mês <?php echo $objPag["mes"] .' / '. $objPag["ano"];?>
+                                
+                                <div class="footer">
+                                    <div class="chart-legend">
+                                        <i class="fa fa-circle text-info"></i> Value
+                                        <i class="fa fa-circle text-danger"></i> Value
+                                        <i class="fa fa-circle text-warning"></i> Value
+                                    </div>
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="ti-timer"></i> Total | <i class="ti-export"></i><a> Export PDF</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="card">
-                    <div class="content">
-                        <div class="row">
-                            <div class="col-xs-5">
-                                <div class="icon-big icon-info text-center">
-                                    <i class="ti-twitter-alt"></i>
-                                </div>
+                    <div class="col-md-6">
+                        <div class="card ">
+                            <div class="header">
+                                <h4 class="title">Values per state</h4>
+                                <p class="category">Monthly update</p>
                             </div>
-                            <div class="col-xs-7">
-                                <div class="numbers">
-                                    <p>Total de Beneficiários</p>
-                                    <small> <?php echo $dao->totalBeneficiarios(); ?></small>
+                            <div class="content">
+                                <div id="chartActivity" class="ct-chart">
+                                    <img width="450" height="300" id="totalPagEstado" src="grafico/graficoTotalPagEstado.php">
                                 </div>
-                            </div>
-                        </div>
-                        <div class="footer">
-                            <hr/>
-                            <div class="stats">
-                                <i class="ti-reload"></i> Total
+                                
+                                <div class="footer">
+                                    <div class="chart-legend">
+                                        <i class="fa fa-circle text-info"></i> Value
+                                        <i class="fa fa-circle text-warning"></i> Value
+                                    </div>
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="ti-check"></i> Last Month | <i class="ti-export"></i><a> Export PDF</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
 
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="header">
-                        <h4 class="title">Beneficiários</h4>
-                        <p class="category">Total de Beneficiários</p>
-                    </div>
-                    <div class="content">
-                        <img id="totalbenefmes" src="grafico/graficoTotalBenefMes.php">
-                        <div class="footer">
-                            <div class="chart-legend">
-                                <i class="fa fa-circle text-info"></i> 
-                                <i class="fa fa-circle text-danger"></i> 
-                                <i class="fa fa-circle text-warning"></i> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="header">
-                        <h4 class="title">Beneficiários</h4>
-                        <p class="category">Total de beneficiário por mês e estado</p>
-                    </div>
-                    <div class="content">
-                        <img width="450" height="300" id="totalPagEstado" src="grafico/graficoTotalBenefEstado.php">
-                        <div class="footer">
-                            <div class="chart-legend">
-                                <i class="fa fa-circle text-info"></i> 
-                                <i class="fa fa-circle text-danger"></i> 
-                                <i class="fa fa-circle text-warning"></i> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card ">
-                    <div class="header">
-                        <h4 class="title">Valores</h4>
-                        <p class="category">Total de valores pagos por estado</p>
-                    </div>
-                    <div class="content">
-                         <img width="450" height="300" id="totalPagEstado" src="grafico/graficoTotalPagEstado.php">
-                        <div class="footer">
-                            <div class="chart-legend">
-                                <i class="fa fa-circle text-info"></i> 
-                                <i class="fa fa-circle text-danger"></i> 
-                                <i class="fa fa-circle text-warning"></i> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    <?php
 
-<?php
+    $template->footer();
 
-$template->footer();
-
-?>
-
+    ?>

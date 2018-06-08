@@ -7,8 +7,8 @@
  */
 
 require_once  "../vendor/autoload.php";
-//require_once "../lib/PHPlot/phplot.php";
 require_once "../db/conexao.php";
+require_once "../vendor/mem_image.php";
 
 #Instancia o objeto e setando o tamanho do grafico na tela
 $grafico = new \PHPlot(900,300);
@@ -41,4 +41,10 @@ $grafico->SetDataValues($data);
 
 $grafico->SetPlotType("lines");
 #Exibimos o gráfico
+$grafico->SetPrintImage(false);
 $grafico->DrawGraph();
+
+$pdf = new PDF_MemImage();
+$pdf->AddPage();
+$pdf->GDImage($grafico->img,30,20,140);
+$pdf->Output();

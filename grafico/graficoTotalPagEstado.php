@@ -5,9 +5,9 @@
  * 
  * @author wtx
  */
-require_once  "../vendor/autoload.php";
-//require_once "../lib/PHPlot/phplot.php";
+require_once "../vendor/autoload.php";
 require_once "../db/conexao.php";
+require_once "../vendor/mem_image.php";
 
 $query = "SELECT s.str_name estado, sum(p.db_value) valor
 FROM tb_payments p 
@@ -64,5 +64,10 @@ foreach ($data as $row)
   $grafico->SetLegend(utf8_decode(implode(': ', $row)));
 # Place the legend in the upper left corner:
 $grafico->SetLegendPixels(5, 5);
-
+$grafico->SetPrintImage(false);
 $grafico->DrawGraph();
+
+$pdf = new PDF_MemImage();
+$pdf->AddPage();
+$pdf->GDImage($grafico->img,30,20,140);
+$pdf->Output();

@@ -6,8 +6,8 @@
  * @author wtx
  */
 require_once  "../vendor/autoload.php";
-//require_once "../vendor/davefx/PHPlot/PHPlot/phplot.php";
 require_once "../db/conexao.php";
+require_once "../vendor/mem_image.php";
 
 $query = "SELECT s.str_name estado, sum(p.tb_beneficiaries_id_beneficiaries) qtde, p.int_month mes
 FROM tb_payments p 
@@ -58,8 +58,10 @@ $grafico->SetYTickPos('none');
 # Format the Y Data Labels as numbers with 1 decimal place.
 # Note that this automatically calls SetYLabelType('data').
 $grafico->SetPrecisionY(1);
-
+$grafico->SetPrintImage(false);
 $grafico->DrawGraph();
 
-return $grafico->EncodeImage('base64');
-
+$pdf = new PDF_MemImage();
+$pdf->AddPage();
+$pdf->GDImage($grafico->img,30,20,140);
+$pdf->Output();
