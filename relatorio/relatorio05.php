@@ -32,7 +32,6 @@ foreach ($listObjs as $var):
           </tr>";
 endforeach;
 $html .= "</table>";
-$html .= "<p>Relatório gerado no dia $dia às $hr</p>";
 
 
 $mpdf=new \Mpdf\Mpdf();
@@ -44,7 +43,7 @@ $mpdf->SetSubject('Sistema EconomiC Analyzer');
 $mpdf->SetKeywords('TCPDF, PDF, trabalho PHP');
 $mpdf->SetDisplayMode('fullpage');
 $mpdf->nbpgPrefix = ' de ';
-$mpdf->setFooter('Página {PAGENO}{nbpg}');
+$mpdf->setFooter("Relatório gerado no dia {$dia} às {$hr} - Página {PAGENO}{nbpg}");
 $mpdf->WriteHTML($html);
 $mpdf->Output('economicAnalyzer.pdf','I');
 
