@@ -15,26 +15,26 @@ $template->mainpanel();
             <div class='col-md-12'>
                 <div class='card'>
                     <div class='header'>
-                        <h4 class='title'>Relatorio</h4>
-                        <p class='category'>Lista de relatorios do sistema</p>
+                        <h4 class='title'>Report</h4>
+                        <p class='category'>List of system reports</p>
                     </div>
 
                     <div class='content table-responsive'>
                         <form method="POST" name="form">                          
-                            Tipo de relatorio:
+                            Report type:
                             <select class="form-control" name="relatoriosDisponiveis">
-                                <option value="relatorioNulo">Selecione um relatorio</option>
-                                <option value="relatorio01">Lista de todos os beneficiários</option>
-                                <option value="relatorio02">Lista de todos os beneficiários juntamente com a cidade</option>
-                                <option value="relatorio03">Lista com todos os pagamentos</option>
-                                <option value="relatorio04">Lista com o número de beneficiários jutamente com cidade e o valor pago por mês</option>
-                                <option value="relatorio05">Lista com a soma de vezes que o beneficiário ganhou auxiloi juntamente com os meses e os valores</option>
-                                <option value="relatorio06">Lista com o total de pagamentos por região</option>
-                                <option value="relatorio07">Lista com o total de pagamentos por estado</option>
+                                <option value="relatorioNulo">Select a report</option>
+                                <option value="relatorio01">List of all beneficiaries</option>
+                                <option value="relatorio02">List all beneficiaries together with the city</option>
+                                <option value="relatorio03">List with all payments</option>
+                                <option value="relatorio04">List with the number of beneficiaries along with city and the amount paid per month</option>
+                                <option value="relatorio05">List with the sum of times that the beneficiary has won aid together with the months and values</option>
+                                <option value="relatorio06">List of total payments by region</option>
+                                <option value="relatorio07">List of total payments by state</option>
                             </select>
                             <br/>
 
-                            <input class="btn btn-success" type="submit" value="GERAR RELATORIO">
+                            <input class="btn btn-success" type="submit" value="GENERATE REPORT">
                             <hr>
                         </form>
                         

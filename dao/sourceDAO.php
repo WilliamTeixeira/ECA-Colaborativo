@@ -156,11 +156,11 @@ class sourceDAO
             endforeach;
             echo "
 </tbody>
-     </table>
+    </table>
 
      <div class='box-paginacao' style='text-align: center'>
-       <a class='box-navegacao  $exibir_botao_inicio' href='$endereco?page=$primeira_pagina' title='Primeira Página'> PRIMEIRA  |</a>
-       <a class='box-navegacao  $exibir_botao_inicio' href='$endereco?page=$pagina_anterior' title='Página Anterior'> ANTERIOR  |</a>
+       <a class='box-navegacao  $exibir_botao_inicio' href='$endereco?page=$primeira_pagina' title='Primeira Página'> FIRST  |</a>
+       <a class='box-navegacao  $exibir_botao_inicio' href='$endereco?page=$pagina_anterior' title='Página Anterior'> PREVIOUS  |</a>
 ";
 
             /* Loop para montar a páginação central com os números */
@@ -169,8 +169,8 @@ class sourceDAO
                 echo "<a class='box-numero $destaque' href='$endereco?page=$i'> ( $i ) </a>";
             endfor;
 
-            echo "<a class='box-navegacao $exibir_botao_final' href='$endereco?page=$proxima_pagina' title='Próxima Página'>| PRÓXIMA  </a>
-                  <a class='box-navegacao $exibir_botao_final' href='$endereco?page=$ultima_pagina'  title='Última Página'>| ÚLTIMO  </a>
+            echo "<a class='box-navegacao $exibir_botao_final' href='$endereco?page=$proxima_pagina' title='Próxima Página'>| NEXT  </a>
+                  <a class='box-navegacao $exibir_botao_final' href='$endereco?page=$ultima_pagina'  title='Última Página'>| LAST  </a>
      </div>";
         else:
             echo "<p class='bg-danger'>Nenhum registro foi encontrado!</p>

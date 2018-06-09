@@ -69,8 +69,8 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
             <div class='col-md-12'>
                 <div class='card'>
                     <div class='header'>
-                        <h4 class='title'>Cidade</h4>
-                        <p class='category'>Lista de cidade do sistema</p>
+                        <h4 class='title'>City</h4>
+                        <p class='category'>List of cities of the system</p>
 
                     </div>
                     <div class='content table-responsive'>
@@ -81,19 +81,19 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
                             // Preenche o id no campo id com um valor "value"
                             echo (isset($id) && ($id != null || $id != "")) ? $id : '';
                             ?>"/>
-                            Nome:
+                            Name:
                             <input class="form-control" type="text" name="str_name_city" value="<?php
                             // Preenche o nome no campo nome com um valor "value"
                             echo (isset($str_name_city) && ($str_name_city != null || $str_name_city != "")) ? $str_name_city : '';
                             ?>"/>
                             <br/>
-                            Código da Cidade:
+                            City Code:
                             <input class="form-control" type="text" maxlength="4" name="str_cod_siafi_city" value="<?php
                             // Preenche o sigla no campo sigla com um valor "value"
                             echo (isset($str_cod_siafi_city) && ($str_cod_siafi_city != null || $str_cod_siafi_city != "")) ? $str_cod_siafi_city : '';
                             ?>"/>
                             <br/>
-                            Estado:
+                            State:
                             <select class="form-control" name="tb_state_id_state">
                                 <?php
                                 $query = "SELECT * FROM tb_state order by str_name;";

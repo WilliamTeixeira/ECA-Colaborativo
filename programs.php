@@ -68,8 +68,8 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
             <div class='col-md-12'>
                 <div class='card'>
                     <div class='header'>
-                        <h4 class='title'>Programas</h4>
-                        <p class='category'>Lista de programas do sistema</p>
+                        <h4 class='title'>Program</h4>
+                        <p class='category'>List of programs of system</p>
 
                     </div>
                     <div class='content table-responsive'>
@@ -80,13 +80,13 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
                             // Preenche o id no campo id com um valor "value"
                             echo (isset($id) && ($id != null || $id != "")) ? $id : '';
                             ?>"/>
-                            Nome:
+                            Name:
                             <input class="form-control" type="text" name="str_name_program" value="<?php
                             // Preenche o nome no campo nome com um valor "value"
                             echo (isset($str_name_program) && ($str_name_program != null || $str_name_program != "")) ? $str_name_program : '';
                             ?>"/>
                             <br/>
-                            Código Programaa:
+                            Program Code:
                             <input class="form-control" type="text" name="str_cod_program" value="<?php
                             // Preenche o sigla no campo sigla com um valor "value"
                             echo (isset($str_cod_program) && ($str_cod_program != null || $str_cod_program != "")) ? $str_cod_program : '';

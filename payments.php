@@ -67,8 +67,8 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
             <div class='col-md-12'>
                 <div class='card'>
                     <div class='header'>
-                        <h4 class='title'>Ação</h4>
-                        <p class='category'>Lista de ações do sistema</p>
+                        <h4 class='title'>Action</h4>
+                        <p class='category'>List of system actions</p>
 
                     </div>
                     <div class='content table-responsive'>

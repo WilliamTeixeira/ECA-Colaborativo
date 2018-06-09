@@ -69,8 +69,8 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
             <div class='col-md-12'>
                 <div class='card'>
                     <div class='header'>
-                        <h4 class='title'>Estado</h4>
-                        <p class='category'>Lista de estados do sistema</p>
+                        <h4 class='title'>State</h4>
+                        <p class='category'>List of system states</p>
 
                     </div>
                     <div class='content table-responsive'>
@@ -81,19 +81,19 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
                             // Preenche o id no campo id com um valor "value"
                             echo (isset($id) && ($id != null || $id != "")) ? $id : '';
                             ?>"/>
-                            UF:
+                            Federation unity:
                             <input class="form-control" type="text" name="str_uf" value="<?php
                             // Preenche o nome no campo nome com um valor "value"
                             echo (isset($str_uf) && ($str_uf != null || $str_uf != "")) ? $str_uf : '';
                             ?>"/>
                             <br/>
-                            Nome:
+                            Name:
                             <input class="form-control" type="text" name="str_name" value="<?php
                             // Preenche o nome no campo nome com um valor "value"
                             echo (isset($str_name) && ($str_name != null || $str_name != "")) ? $str_name : '';
                             ?>"/>
                             <br/>
-                            Região:
+                            Region:
                             <select class="form-control" name="tb_state_id_state">
                                 <?php
                                 $query = "SELECT * FROM tb_region order by str_name_region;";

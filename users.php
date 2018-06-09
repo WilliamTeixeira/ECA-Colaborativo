@@ -84,8 +84,8 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
             <div class='col-md-12'>
                 <div class='card'>
                     <div class='header'>
-                        <h4 class='title'>Usuários</h4>
-                        <p class='category'>Lista de Usuários do sistema</p>
+                        <h4 class='title'>Users</h4>
+                        <p class='category'>List of system users</p>
 
                     </div>
                     <div class='content table-responsive'>
