@@ -1,20 +1,25 @@
 <?php
+
 /**
  * Description of graficoTotalBenefEstado
  * Total de beneficiário por mês, por estado; (Bar Chart with Data Value Labels)
  * 
  * @author wtx
  */
-require_once  "../vendor/autoload.php";
+require_once "../vendor/autoload.php";
 require_once "../db/conexao.php";
 require_once "../vendor/mem_image.php";
 
-$query = "SELECT s.str_name estado, sum(p.tb_beneficiaries_id_beneficiaries) qtde, p.int_month mes
-FROM tb_payments p 
-inner join tb_city c 
-inner join tb_state s 
-where p.tb_city_id_city = c.id_city and c.tb_state_id_state = s.id_state
-group by s.id_state, p.int_month;";
+$query = "SELECT s.str_name estado, sum(p.tb_beneficiaries_id_beneficiaries) qtde, p.int_month mes , p.int_year ano
+	FROM tb_payments p 
+	inner join tb_city c 
+        on  p.tb_city_id_city = c.id_city 
+	inner join tb_state s 
+        on c.tb_state_id_state = s.id_state
+        where p.int_year in (SELECT max(p.int_year) ano FROM tb_payments p) 
+        and p.int_month in (SELECT max(p.int_month) mes FROM tb_payments p)
+        group by s.id_state, p.int_year, p.int_month 
+        order by p.int_year desc, p.int_month desc, s.str_name asc;";
 
 $statement = $pdo->prepare($query);
 $statement->execute();
@@ -24,20 +29,21 @@ foreach ($rs as $value) {
     $resultado[] = $value;
 }
 
-if(isset($resultado)) {
-    foreach ($resultado as $r){
-        $data[] = [utf8_decode($r['estado']) . ' mes: ' . $r['mes'], $r['qtde']];
+if (isset($resultado)) {
+    foreach ($resultado as $r) {
+        $data[] = [utf8_decode($r['estado']), $r['qtde']];
+        $mesano = $r['mes'].'/'.$r['ano'];
     }
 } else {
-    $data[]=[null,null];
+    $data[] = [null, null];
 }
-$grafico = new \PHPlot(800,400);
+$grafico = new \PHPlot(800, 400);
 //$grafico = new PHPlot(800, 400);
 $grafico->SetImageBorderType('plain');
 $grafico->SetPlotType('bars');
 $grafico->SetDataType('text-data');
 $grafico->SetDataValues($data);
-$grafico->SetTitle(utf8_decode("Total de beneficiários por mes e por estado"));
+$grafico->SetTitle(utf8_decode("Total de beneficiários por estado em: "). $mesano);
 
 # Turn off X tick labels and ticks because they don't apply here:
 $grafico->SetXTickLabelPos('none');
@@ -58,10 +64,14 @@ $grafico->SetYTickPos('none');
 # Format the Y Data Labels as numbers with 1 decimal place.
 # Note that this automatically calls SetYLabelType('data').
 $grafico->SetPrecisionY(1);
-$grafico->SetPrintImage(false);
+
+if (isset($_GET['print']) && $_GET['print'] == 'TRUE') {
+    $grafico->SetPrintImage(FALSE);
+}
+
 $grafico->DrawGraph();
 
 $pdf = new PDF_MemImage();
 $pdf->AddPage();
-$pdf->GDImage($grafico->img,30,20,140);
+$pdf->GDImage($grafico->img, 30, 20, 140);
 $pdf->Output();

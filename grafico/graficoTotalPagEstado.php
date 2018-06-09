@@ -1,7 +1,8 @@
 <?php
+
 /**
  * Description of graficoTotalPag
- * Total de valores pagos por mês, por estado; (Pie Chart, text-data-single)
+ * Total de valores pagos por mês, por estado (ultimo mes); (Pie Chart, text-data-single)
  * 
  * @author wtx
  */
@@ -9,12 +10,16 @@ require_once "../vendor/autoload.php";
 require_once "../db/conexao.php";
 require_once "../vendor/mem_image.php";
 
-$query = "SELECT s.str_name estado, sum(p.db_value) valor
-FROM tb_payments p 
-inner join tb_city c 
-inner join tb_state s 
-where p.tb_city_id_city = c.id_city and c.tb_state_id_state = s.id_state
-group by s.id_state;";
+$query = "SELECT s.str_name estado, sum(p.db_value) valor, p.int_month mes , p.int_year ano
+	FROM tb_payments p 
+        inner join tb_city c 
+        on  p.tb_city_id_city = c.id_city 
+	inner join tb_state s 
+        on c.tb_state_id_state = s.id_state
+        where p.int_year in (SELECT max(p.int_year) ano FROM tb_payments p) 
+        and p.int_month in (SELECT max(p.int_month) mes FROM tb_payments p)
+        group by s.id_state, p.int_year, p.int_month 
+        order by p.int_year desc, p.int_month desc, s.str_name asc;";
 
 $statement = $pdo->prepare($query);
 $statement->execute();
@@ -26,17 +31,16 @@ foreach ($rs as $value) {
 
 $data = array();
 
-if(isset($resultado)) {
-    foreach ($resultado as $r){
-        $data[] = [$r['estado'], $r['valor'] ];
-        //var_dump($r); 
-        //echo '<br>';
+if (isset($resultado)) {
+    foreach ($resultado as $r) {
+        $data[] = [$r['estado'], $r['valor']];
+        $mesano = $r['mes'].'/'.$r['ano'];
     }
 } else {
-    $data[]=[null,null,null];
+    $data[] = [null, null, null];
 }
 
-$grafico = new \PHPlot(800,600);
+$grafico = new \PHPlot(1100, 500);
 $grafico->SetImageBorderType('plain');
 
 $grafico->SetPlotType('pie');
@@ -46,28 +50,34 @@ $grafico->SetDataValues($data);
 # Set enough different colors;
 $grafico->SetDataColors(
         array(
-            '#F0F8FF', '#FAEBD7', '#7FFFD4', '#D2691E', 
-            '#FF7F50', '#6495ED', '#FFF8DC', '#DC143C', 
-            '#00FFFF', '#00008B', '#F0F8FF', '#FAEBD7', 
-            '#008B8B', '#B8860B', '#A9A9A9', '#006400', 
-            '#BDB76B', '#8B008B', '#556B2F', '#FF8C00', 
-            '#9932CC', '#8B0000', '#E9967A', '#8FBC8F',
-            '#483D8B')
-        );
+            '#cc0000', '#ffb3b3', '#ff6600', '#ffd1b3',
+            '#803300', '#ffff00', '#808000', '#ff99cc',
+            '#cc0066', '#669900', '#bbff33', '#009900',
+            '#99ffcc', '#00b3b3', '#ccf2ff', '#53c68c', 
+            '#c2c2d6', '#3333cc', '#00ffff', '#003366',
+            '#3973ac', '#00001a', '#990000', '#990033',
+            '#666633', '#ddddbb','#996633'
+            
+            )
+);
 
 # Main plot title:
-$grafico->SetTitle("Total de valores pagos por estado");
+$grafico->SetTitle("Total de valores pagos por estado em: $mesano");
 
 # Build a legend from our data array.
 # Each call to SetLegend makes one line as "label: value".
 foreach ($data as $row)
-  $grafico->SetLegend(utf8_decode(implode(': ', $row)));
+    $grafico->SetLegend(utf8_decode(implode(': ', $row)));
 # Place the legend in the upper left corner:
 $grafico->SetLegendPixels(5, 5);
-$grafico->SetPrintImage(false);
+
+if (isset($_GET['print']) && $_GET['print'] == 'TRUE') {
+    $grafico->SetPrintImage(FALSE);
+}
+
 $grafico->DrawGraph();
 
 $pdf = new PDF_MemImage();
 $pdf->AddPage();
-$pdf->GDImage($grafico->img,30,20,140);
+$pdf->GDImage($grafico->img, 30, 20, 140);
 $pdf->Output();

@@ -1,17 +1,17 @@
 <?php
+
 /**
  * Description of graficoTotalBenefMes
  * Série histórica, com o total de beneficiário por mês, por ano (Line Plot)
  * 
  * @author wtx
  */
-
-require_once  "../vendor/autoload.php";
+require_once "../vendor/autoload.php";
 require_once "../db/conexao.php";
 require_once "../vendor/mem_image.php";
 
 #Instancia o objeto e setando o tamanho do grafico na tela
-$grafico = new \PHPlot(900,300);
+$grafico = new \PHPlot(1200, 300);
 #Indicamos o títul do gráfico e o título dos dados no eixo X e Y do mesmo
 $grafico->SetTitle(utf8_decode("Beneficiários por Mes e Ano"));
 //$grafico->SetTitle("Beneficiários por Mês e Ano");
@@ -29,22 +29,26 @@ foreach ($rs as $value) {
     $resultado[] = $value;
 }
 $data = array();
-if(isset($resultado)) {
-    foreach ($resultado as $r){
-        $data[] = [ $r['ano'].'/'.$r['mes'], $r['qtde']];
+if (isset($resultado)) {
+    foreach ($resultado as $r) {
+        $data[] = [$r['ano'] . '/' . $r['mes'], $r['qtde']];
     }
 } else {
-    $data[]=[null,null];
+    $data[] = [null, null];
 }
 //$grafico->SetDefaultTTFont('assets/fonts/Timeless.ttf');
 $grafico->SetDataValues($data);
 
 $grafico->SetPlotType("lines");
 #Exibimos o gráfico
-$grafico->SetPrintImage(false);
+
+if (isset($_GET['print']) && $_GET['print'] == 'TRUE') {
+    $grafico->SetPrintImage(FALSE);
+}
+
 $grafico->DrawGraph();
 
 $pdf = new PDF_MemImage();
 $pdf->AddPage();
-$pdf->GDImage($grafico->img,30,20,140);
+$pdf->GDImage($grafico->img, 30, 20, 140);
 $pdf->Output();

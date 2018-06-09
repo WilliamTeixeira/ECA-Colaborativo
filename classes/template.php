@@ -105,7 +105,7 @@ echo "
         </div>
 
             <ul class=\"nav\">
-                <li class=\"active\">
+                <li>
                     <a href=\"dashboard.php\">
                         <i class=\"ti-panel\"></i>
                         <p>Dashboard</p>

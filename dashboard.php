@@ -135,7 +135,7 @@ $objPag = $dao->pagUltimoMes();
                             <div class="content">
                                 
                                 <div id="chartHours" class="ct-chart">
-                                    <img id="totalbenefmes" src="grafico/graficoTotalBenefMes.php">
+                                    <img style="max-width: 100%; max-height: 100%" src="grafico/graficoTotalBenefMes.php" />
                                 </div>
                                 <div class="footer">
                                     <div class="chart-legend">
@@ -145,7 +145,8 @@ $objPag = $dao->pagUltimoMes();
                                     </div>
                                     <hr>
                                     <div class="stats">
-                                        <i class="ti-info-alt"></i> Historic Serie | <i class="ti-export"></i><a> Export PDF</a>
+                                        <i class="ti-info-alt"></i> Historic Serie | <i class="ti-export"></i>
+                                        <a href="grafico/graficoTotalBenefMes.php?print=TRUE">Export PDF</a>
                                     </div>
                                 </div>
                             </div>
@@ -161,7 +162,7 @@ $objPag = $dao->pagUltimoMes();
                             </div>
                             <div class="content">
                                 <div id="chartPreferences" class="ct-chart ct-perfect-fourth">
-                                    <img width="450" height="300" id="totalPagEstado" src="grafico/graficoTotalBenefEstado.php">
+                                    <img style="max-width: 100%; max-height: 100%"  src="grafico/graficoTotalBenefEstado.php" />
                                 </div>
                                 
                                 <div class="footer">
@@ -172,7 +173,8 @@ $objPag = $dao->pagUltimoMes();
                                     </div>
                                     <hr>
                                     <div class="stats">
-                                        <i class="ti-timer"></i> Total | <i class="ti-export"></i><a> Export PDF</a>
+                                        <i class="ti-timer"></i> Total | <i class="ti-export"></i>
+                                        <a href="grafico/graficoTotalBenefEstado.php?print=TRUE">Export PDF</a>
                                     </div>
                                 </div>
                             </div>
@@ -186,7 +188,7 @@ $objPag = $dao->pagUltimoMes();
                             </div>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart">
-                                    <img width="450" height="300" id="totalPagEstado" src="grafico/graficoTotalPagEstado.php">
+                                   <img style="max-width: 100%; max-height: 100%"  src="grafico/graficoTotalPagEstado.php" />
                                 </div>
                                 
                                 <div class="footer">
@@ -196,7 +198,8 @@ $objPag = $dao->pagUltimoMes();
                                     </div>
                                     <hr>
                                     <div class="stats">
-                                        <i class="ti-check"></i> Last Month | <i class="ti-export"></i><a> Export PDF</a>
+                                        <i class="ti-check"></i> Last Month | <i class="ti-export"></i>
+                                        <a href="grafico/graficoTotalPagEstado.php?print=TRUE">Export PDF</a>
                                     </div>
                                 </div>
                             </div>
