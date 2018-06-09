@@ -70,8 +70,8 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
             <div class='col-md-12'>
                 <div class='card'>
                     <div class='header'>
-                        <h4 class='title'>Arquivos</h4>
-                        <p class='category'>Lista de arquivos do sistema</p>
+                        <h4 class='title'>Files</h4>
+                        <p class='category'>List of system files</p>
 
                     </div>
                     <div class='content table-responsive'>
@@ -82,25 +82,25 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
                             // Preenche o id no campo id com um valor "value"
                             echo (isset($id) && ($id != null || $id != "")) ? $id : '';
                             ?>"/>
-                            Nome:
+                            Name:
                             <input class="form-control" type="text" name="str_name_file" value="<?php
                             // Preenche o nome no campo nome com um valor "value"
                             echo (isset($str_name_file) && ($str_name_file != null || $str_name_file != "")) ? $str_name_file : '';
                             ?>"/>
                             <br/>
-                            Mês:
+                            Month:
                             <input class="form-control" type="text" maxlength="2" name="str_month" value="<?php
                             // Preenche o nome no campo nome com um valor "value"
                             echo (isset($str_month) && ($str_month != null || $str_month != "")) ? $str_month : '';
                             ?>"/>
                             <br/>
-                            Ano:
+                            Year:
                             <input class="form-control" type="text" maxlength="4" name="str_year" value="<?php
                             // Preenche o nome no campo nome com um valor "value"
                             echo (isset($str_year) && ($str_year != null || $str_year != "")) ? $str_year : '';
                             ?>"/>
                             <br/>
-                            <input class="btn btn-success" type="submit" value="CADASTRAR">
+                            <input class="btn btn-success" type="submit" value="REGISTER">
                             <hr>
                         </form>
 

@@ -67,8 +67,8 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
             <div class='col-md-12'>
                 <div class='card'>
                     <div class='header'>
-                        <h4 class='title'>Ação</h4>
-                        <p class='category'>Lista de ações do sistema</p>
+                        <h4 class='title'>Action</h4>
+                        <p class='category'>List of system actions</p>
 
                     </div>
                     <div class='content table-responsive'>
@@ -79,19 +79,19 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
                             // Preenche o id no campo id com um valor "value"
                             echo (isset($id) && ($id != null || $id != "")) ? $id : '';
                             ?>"/>
-                            Nome:
+                            Name:
                             <input class="form-control" type="text" size="50" name="str_name_action" value="<?php
                             // Preenche o nome no campo nome com um valor "value"
                             echo (isset($str_name_action) && ($str_name_action != null || $str_name_action != "")) ? $str_name_action : '';
                             ?>"/>
                             <br/>
-                            Código Ação:
+                            Code Action:
                             <input class="form-control" type="text" size="10" name="str_cod_action" value="<?php
                             // Preenche o sigla no campo sigla com um valor "value"
                             echo (isset($str_cod_action) && ($str_cod_action != null || $str_cod_action != "")) ? $str_cod_action : '';
                             ?>"/>
                             <br/>
-                            <input class="btn btn-success" type="submit" value="CADASTRAR">
+                            <input class="btn btn-success" type="submit" value="REGISTER">
                             <hr>
                         </form>
 

@@ -33,12 +33,14 @@ try {
         //echo "<br> $login <br>";
         //echo "$passwd <br>";
         if( $loginBanco!=null and $senha != null)
-        {
+        {         
+            
             $_SESSION['iduser'] = $iduser;
             $_SESSION['login'] = $loginBanco;
             $_SESSION['password'] = $senha;
             $_SESSION['name'] = $name;
-            $_SESSION['perfil'] = $perfil;
+            $_SESSION['perfil'] = $perfil; 
+            
             
             header('location:index.php');
         }

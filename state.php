@@ -114,7 +114,7 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
                             </select>
                             <br/>
 
-                            <input class="btn btn-success" type="submit" value="CADASTRAR">
+                            <input class="btn btn-success" type="submit" value="REGISTER">
                             <hr>
                         </form>
 

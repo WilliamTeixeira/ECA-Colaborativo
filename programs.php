@@ -92,7 +92,7 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
                             echo (isset($str_cod_program) && ($str_cod_program != null || $str_cod_program != "")) ? $str_cod_program : '';
                             ?>"/>
                             <br/>
-                            <input class="btn btn-success" type="submit" value="CADASTRAR">
+                            <input class="btn btn-success" type="submit" value="REGISTER">
                             <hr>
                         </form>
 

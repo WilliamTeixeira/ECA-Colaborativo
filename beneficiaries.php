@@ -68,8 +68,8 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
             <div class='col-md-12'>
                 <div class='card'>
                     <div class='header'>
-                        <h4 class='title'>Beneficiários</h4>
-                        <p class='category'>Lista de beneficiários do sistema</p>
+                        <h4 class='title'>Beneficiaries</h4>
+                        <p class='category'>List of beneficiaries of the system</p>
 
                     </div>
                     <div class='content table-responsive'>
@@ -80,19 +80,19 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
                             // Preenche o id no campo id com um valor "value"
                             echo (isset($id) && ($id != null || $id != "")) ? $id : '';
                             ?>"/>
-                            Nome:
+                            Name:
                             <input class="form-control" type="text" name="str_name_person" value="<?php
                             // Preenche o nome no campo nome com um valor "value"
                             echo (isset($str_name_person) && ($str_name_person != null || $str_name_person != "")) ? $str_name_person : '';
                             ?>"/>
                             <br/>
                             NIS:
-                            <input class="form-control" type="text" maxlength="11" name="str_nis" placeholder="Digitar somente números" value="<?php
+                            <input class="form-control" type="text" maxlength="11" name="str_nis" placeholder="Enter numbers only" value="<?php
                             // Preenche o sigla no campo sigla com um valor "value"
                             echo (isset($str_nis) && ($str_nis != null || $str_nis != "")) ? $str_nis : '';
                             ?>"/>
                             <br/>
-                            <input class="btn btn-success" type="submit" value="CADASTRAR">
+                            <input class="btn btn-success" type="submit" value="REGISTER">
                             <hr>
                         </form>
 

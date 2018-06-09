@@ -83,7 +83,7 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
                             echo (isset($str_name_region) && ($str_name_region != null || $str_name_region != "")) ? $str_name_region : '';
                             ?>"/>
                             <br/>
-                            <input class="btn btn-success" type="submit" value="CADASTRAR">
+                            <input class="btn btn-success" type="submit" value="REGISTER">
                             <hr>
                         </form>
 

@@ -67,8 +67,8 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
             <div class='col-md-12'>
                 <div class='card'>
                     <div class='header'>
-                        <h4 class='title'>Sub-Função</h4>
-                        <p class='category'>Lista de sub-funções do sistema</p>
+                        <h4 class='title'>Subfunctions</h4>
+                        <p class='category'>List of system subfunctions</p>
 
                     </div>
                     <div class='content table-responsive'>
@@ -79,19 +79,19 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
                             // Preenche o id no campo id com um valor "value"
                             echo (isset($id) && ($id != null || $id != "")) ? $id : '';
                             ?>"/>
-                            Nome:
+                            Name:
                             <input class="form-control" type="text" name="str_name_subfunction" value="<?php
                             // Preenche o nome no campo nome com um valor "value"
                             echo (isset($str_name_subfunction) && ($str_name_subfunction != null || $str_name_subfunction != "")) ? $str_name_subfunction : '';
                             ?>"/>
                             <br/>
-                            Código:
+                            Code:
                             <input class="form-control" type="text" maxlength="4" name="str_cod_subfunction" value="<?php
                             // Preenche o sigla no campo sigla com um valor "value"
                             echo (isset($str_cod_subfunction) && ($str_cod_subfunction != null || $str_cod_subfunction != "")) ? $str_cod_subfunction : '';
                             ?>"/>
                             <br/>
-                            <input class="btn btn-success" type="submit" value="CADASTRAR">
+                            <input class="btn btn-success" type="submit" value="REGISTER">
                             <hr>
                         </form>
 

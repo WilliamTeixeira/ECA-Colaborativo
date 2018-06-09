@@ -70,8 +70,8 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
             <div class='col-md-12'>
                 <div class='card'>
                     <div class='header'>
-                        <h4 class='title'>Fonte</h4>
-                        <p class='category'>Lista de fontes do sistema</p>
+                        <h4 class='title'>Source</h4>
+                        <p class='category'>List of system fonts</p>
 
                     </div>
                     <div class='content table-responsive'>
@@ -82,25 +82,25 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
                             // Preenche o id no campo id com um valor "value"
                             echo (isset($id) && ($id != null || $id != "")) ? $id : '';
                             ?>"/>
-                            Objetivo:
+                            Goal:
                             <input class="form-control" type="text" name="str_goal" value="<?php
                             // Preenche o nome no campo nome com um valor "value"
                             echo (isset($str_goal) && ($str_goal != null || $str_goal != "")) ? $str_goal : '';
                             ?>"/>
                             <br/>
-                            Origem:
+                            Origination:
                             <input class="form-control" type="text" name="str_origin" value="<?php
                             // Preenche o nome no campo nome com um valor "value"
                             echo (isset($str_origin) && ($str_origin != null || $str_origin != "")) ? $str_origin : '';
                             ?>"/>
                             <br/>
-                            Periodicidade:
+                            Periodicity:
                             <input class="form-control" type="text" maxlength="9" name="str_periodicity" value="<?php
                             // Preenche o nome no campo nome com um valor "value"
                             echo (isset($str_periodicity) && ($str_periodicity != null || $str_periodicity != "")) ? $str_periodicity : '';
                             ?>"/>
                             <br/>
-                            <input class="btn btn-success" type="submit" value="CADASTRAR">
+                            <input class="btn btn-success" type="submit" value="REGISTER">
                             <hr>
                         </form>
 

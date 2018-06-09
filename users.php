@@ -152,7 +152,7 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
                             
                             <br/>
 
-                            <input class="btn btn-success" type="<?php echo ($p == 0) ? 'submit' : 'hidden' ?>" value="CADASTRAR">
+                            <input class="btn btn-success" type="<?php echo ($p == 0) ? 'submit' : 'hidden' ?>" value="REGISTER">
                                 <hr>
                                     </form>
                                 <?php
