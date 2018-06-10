@@ -8,7 +8,8 @@
  */
 require_once "../vendor/autoload.php";
 require_once "../db/conexao.php";
-require_once "../vendor/mem_image.php";
+require_once "../lib/mem_image.php";
+//require_once "../relatorio/toPdf.php";
 
 #Instancia o objeto e setando o tamanho do grafico na tela
 $grafico = new \PHPlot(1200, 300);
@@ -44,6 +45,8 @@ $grafico->SetPlotType("lines");
 
 if (isset($_GET['print']) && $_GET['print'] == 'TRUE') {
     $grafico->SetPrintImage(FALSE);
+    //$pdf = new toPdf();
+    //$pdf->pdf($grafico);
 }
 
 $grafico->DrawGraph();

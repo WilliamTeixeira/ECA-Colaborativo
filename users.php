@@ -4,7 +4,7 @@
  *
  * @author wtx
  */
-require_once "classes/template.php";
+require_once "lib/template.php";
 
 require_once "dao/userDAO.php";
 require_once "classes/user.php";
@@ -19,8 +19,10 @@ $template->mainpanel();
 
 $p = $_SESSION['perfil'];
 
+//perfil: 0:Adm, 1:User
+//Se o perfil for diferente de Adm e for digitado o endereço no browse, redireciona o usuario para o index.
 if($p != 0){
-    header ('location:index.php');
+     echo "<script>script:window.open('index.php', '_self');</script>";
 }
 // Verificar se foi enviando dados via POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

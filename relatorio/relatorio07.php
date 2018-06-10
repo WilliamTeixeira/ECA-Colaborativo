@@ -3,7 +3,6 @@
 ini_set('display_errors', 0);
 
 require_once  "../vendor/autoload.php";
-//require_once "../lib/mpdf/mpdf.php";
 require_once "../dao/relatorioDAO.php";
 
 $dao = new relatorioDAO();
@@ -14,8 +13,8 @@ $hr = $dao ->horaAtual();
 
 $html = "<table border='1' cellspacing='3' cellpadding='3' >";
 $html .= "<tr>
-            <th>VALOR TOTAL PAGO</th>
-            <th>NOME DO ESTADO</th>
+            <th>TOTAL AMOUNT PAID</th>
+            <th>NAME OF STATE</th>
         </tr>";
 foreach ($listObjs as $var):
     $html.= "<tr>
@@ -30,12 +29,12 @@ $mpdf = new \Mpdf\Mpdf();
 //$mpdf=new mPDF();
 $mpdf->SetCreator(PDF_CREATOR);
 $mpdf->SetAuthor('Hugo Nogueira Pinto');
-$mpdf->SetTitle('Relatório PDF com o número de beneficiário por estados e o valor total pago por cidade, por mês, ordenados por valor total decrescente');
-$mpdf->SetSubject('Sistema EconomiC Analyzer');
+$mpdf->SetTitle('PDF report with the beneficiary number by states and the total amount paid per city, per month, sorted by total decreasing value');
+$mpdf->SetSubject('System EconomiC Analyzer');
 $mpdf->SetKeywords('TCPDF, PDF, trabalho PHP');
 $mpdf->SetDisplayMode('fullpage');
 $mpdf->nbpgPrefix = ' de ';
-$mpdf->setFooter("Relatório gerado no dia {$dia} às {$hr} - Página {PAGENO}{nbpg}");
+$mpdf->setFooter("Report generated on {$dia} at {$hr} - Page {PAGENO}{nbpg}");
 $mpdf->WriteHTML($html);
 $mpdf->Output('economicAnalyzer.pdf','I');
 

@@ -8,7 +8,8 @@
  */
 require_once "../vendor/autoload.php";
 require_once "../db/conexao.php";
-require_once "../vendor/mem_image.php";
+require_once "../lib/mem_image.php";
+//require_once "../relatorio/toPdf.php";
 
 $query = "SELECT s.str_name estado, sum(p.db_value) valor, p.int_month mes , p.int_year ano
 	FROM tb_payments p 
@@ -73,9 +74,11 @@ $grafico->SetLegendPixels(5, 5);
 
 if (isset($_GET['print']) && $_GET['print'] == 'TRUE') {
     $grafico->SetPrintImage(FALSE);
+    //$pdf = new toPdf();
+    //$pdf->pdf($grafico);
 }
 
-return $grafico->DrawGraph();
+$grafico->DrawGraph();
 
 $pdf = new PDF_MemImage();
 $pdf->AddPage();

@@ -5,7 +5,7 @@
  * @author wtx
  */
 
-require_once "classes/template.php";
+require_once "lib/template.php";
 
 require_once "dao/paymentsDAO.php";
 require_once "classes/payments.php";

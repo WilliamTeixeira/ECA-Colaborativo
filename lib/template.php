@@ -97,11 +97,12 @@ echo "
         <div class=\"sidebar-wrapper\">
             <div class=\"logo\">
                 <a href='index.php'><img src=\"assets/img/logo.png\" height=\"150\" width=\"200\"></a>
-                <h4>EconomiC Analyzer</h4>
+                <h4>
+                    EconomiC Analyzer
+                </h4>
                 <small><a href=\"sair.php\">
                     Get out
                 </a></small>
-            
         </div>
 
             <ul class=\"nav\">
@@ -200,6 +201,9 @@ echo "
     function mainpanel()
     {
 
+        date_default_timezone_set('America/Sao_Paulo');
+        $data = date('d-m-Y');
+        
         echo "<div class=\"main-panel\">
         <nav class=\"navbar navbar-default\">
             <div class=\"container-fluid\">
@@ -210,8 +214,11 @@ echo "
                         <span class=\"icon-bar bar2\"></span>
                         <span class=\"icon-bar bar3\"></span>
                     </button>
+                    
                     <a class=\"navbar-brand\" href=\"#\">General Information</a>
+                    
                 </div>
+                <small style='float: right'>$data</small>
                 <div class=\"collapse navbar-collapse\">
                     <ul class=\"nav navbar-nav navbar-right\">
                         <!--li>

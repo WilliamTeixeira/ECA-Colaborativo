@@ -1,6 +1,6 @@
 <?php
 
-require_once "classes/template.php";
+require_once "lib/template.php";
 
 $template = new Template();
 

@@ -5,7 +5,7 @@
  * @author wtx
  */
 
-require_once "classes/template.php";
+require_once "lib/template.php";
 
 $template = new Template();
 
@@ -25,7 +25,7 @@ $logado = $_SESSION["name"]
                         <p class='category'></p>
                     </div>
                     <div class='content table-responsive'>
-                          <h4 class="title">Welcom <?=$logado;?> </h4>
+                          <h4 class="title">Welcome <?=$logado;?> </h4>
 
                     </div>
                 </div>
