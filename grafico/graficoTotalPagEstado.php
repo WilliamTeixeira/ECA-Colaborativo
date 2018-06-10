@@ -62,7 +62,7 @@ $grafico->SetDataColors(
 );
 
 # Main plot title:
-$grafico->SetTitle("Total de valores pagos por estado em: $mesano");
+$grafico->SetTitle("Total amounts paid per state in: $mesano");
 
 # Build a legend from our data array.
 # Each call to SetLegend makes one line as "label: value".
@@ -75,7 +75,7 @@ if (isset($_GET['print']) && $_GET['print'] == 'TRUE') {
     $grafico->SetPrintImage(FALSE);
 }
 
-$grafico->DrawGraph();
+return $grafico->DrawGraph();
 
 $pdf = new PDF_MemImage();
 $pdf->AddPage();

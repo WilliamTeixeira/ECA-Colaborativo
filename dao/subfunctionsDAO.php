@@ -134,10 +134,10 @@ class subfunctionsDAO
      <table class='table table-striped table-bordered'>
      <thead>
        <tr style='text-transform: uppercase;' class='active'>
-        <th style='text-align: center; font-weight: bolder;'>Código</th>
-        <th style='text-align: center; font-weight: bolder;'>Código Sub-Função</th>
-        <th style='text-align: center; font-weight: bolder;'>Nome Sub-Função</th>
-        <th style='text-align: center; font-weight: bolder;' colspan='2'>Ações</th>
+        <th style='text-align: center; font-weight: bolder;'>Code</th>
+        <th style='text-align: center; font-weight: bolder;'>Code Sub-Function</th>
+        <th style='text-align: center; font-weight: bolder;'>Name Sub-Function</th>
+        <th style='text-align: center; font-weight: bolder;' colspan='2'>Actions</th>
        </tr>
      </thead>
      <tbody>";

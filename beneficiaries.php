@@ -1,6 +1,6 @@
 <?php
 /**
- * Description of subfunctionsDAO
+ * Description of beneficiaries
  *
  * @author wtx
  */

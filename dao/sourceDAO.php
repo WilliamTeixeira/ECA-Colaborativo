@@ -136,11 +136,11 @@ class sourceDAO
      <table class='table table-striped table-bordered'>
      <thead>
        <tr style='text-transform: uppercase;' class='active'>
-        <th style='text-align: center; font-weight: bolder;'>Código</th>
-        <th style='text-align: center; font-weight: bolder;'>Objetivo</th>
-        <th style='text-align: center; font-weight: bolder;'>Origem</th>
-        <th style='text-align: center; font-weight: bolder;'>Periodicidade</th>
-        <th style='text-align: center; font-weight: bolder;' colspan='2'>Ações</th>
+        <th style='text-align: center; font-weight: bolder;'>Code</th>
+        <th style='text-align: center; font-weight: bolder;'>Goal</th>
+        <th style='text-align: center; font-weight: bolder;'>Origin</th>
+        <th style='text-align: center; font-weight: bolder;'>Periodicity</th>
+        <th style='text-align: center; font-weight: bolder;' colspan='2'>Actions</th>
        </tr>
      </thead>
      <tbody>";

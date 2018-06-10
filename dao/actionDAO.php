@@ -134,10 +134,10 @@ class actionDAO
      <table class='table table-striped table-bordered'>
      <thead>
        <tr style='text-transform: uppercase;' class='active'>
-        <th style='text-align: center; font-weight: bolder;'>Código</th>
-        <th style='text-align: center; font-weight: bolder;'>Código Ação</th>
-        <th style='text-align: center; font-weight: bolder;'>Nome Ação</th>
-        <th style='text-align: center; font-weight: bolder;' colspan='2'>Ações</th>
+        <th style='text-align: center; font-weight: bolder;'>Code</th>
+        <th style='text-align: center; font-weight: bolder;'>Code Action</th>
+        <th style='text-align: center; font-weight: bolder;'>Name Action</th>
+        <th style='text-align: center; font-weight: bolder;' colspan='2'>Actions</th>
        </tr>
      </thead>
      <tbody>";

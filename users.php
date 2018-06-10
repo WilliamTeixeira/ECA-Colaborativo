@@ -1,6 +1,6 @@
 <?php
 /**
- * Description of subfunctionsDAO
+ * Description of users
  *
  * @author wtx
  */
@@ -19,6 +19,9 @@ $template->mainpanel();
 
 $p = $_SESSION['perfil'];
 
+if($p != 0){
+    header ('location:index.php');
+}
 // Verificar se foi enviando dados via POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = (isset($_POST["id"]) && $_POST["id"] != null) ? $_POST["id"] : "";
@@ -100,53 +103,55 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
                             // Preenche o id no campo id com um valor "value"
                             echo (isset($id) && ($id != null || $id != "")) ? $id : '';
                             ?>"/>
-                            
-                            <input placeholder="Login" class="form-control" type="<?php echo ($p == 0) ? 'text' : 'hidden' ?>" size="50" name="login" value="<?php
+                            <Laber>Login</Laber>
+                            <input class="form-control" type="<?php echo ($p == 0) ? 'text' : 'hidden' ?>" size="50" name="login" value="<?php
                             // Preenche o nome no campo nome com um valor "value"
                             echo (isset($login) && ($login != null || $login != "")) ? $login : '';
                             ?>" required/>
                             <br/>
-                            <input placeholder="Senha" class="form-control" type="<?php echo ($p == 0) ? 'text' : 'hidden' ?>" size="10" name="senha" value="<?php
+                            <Laber>Password</Laber>
+                            <input class="form-control" type="<?php echo ($p == 0) ? 'text' : 'hidden' ?>" size="10" name="senha" value="<?php
                                    // Preenche o sigla no campo sigla com um valor "value"
                                    //echo (isset($senha) && ($senha != null || $senha != "")) ? $senha : '';
                                    ?>" required/>
                             <br/>
-
-                            <input placeholder="Nome" class="form-control" type="<?php echo ($p == 0) ? 'text' : 'hidden' ?>" size="50" name="nome" value="<?php
+                            <Laber>Name</Laber>
+                            <input class="form-control" type="<?php echo ($p == 0) ? 'text' : 'hidden' ?>" size="50" name="nome" value="<?php
                                    // Preenche o nome no campo nome com um valor "value"
                                    echo (isset($nome) && ($nome != null || $nome != "")) ? $nome : '';
                                    ?>"/>
                             <br/>
-
-                            <input placeholder="Email" class="form-control" type="<?php echo ($p == 0) ? 'email' : 'hidden' ?>" size="50" name="email" value="<?php
+                            <Laber>Email</Laber>
+                            <input class="form-control" type="<?php echo ($p == 0) ? 'email' : 'hidden' ?>" size="50" name="email" value="<?php
                                    // Preenche o nome no campo nome com um valor "value"
                                    echo (isset($email) && ($email != null || $email != "")) ? $email : '';
                                    ?>" required/>
                             <br/>
-                            
+                            <Laber>Reset Password</Laber>
                             <?php 
                                 if($p == 0){
                                     echo "<select class='form-control' name='resetar'>
                                     <option value='0'"; 
                                     echo (($resetar == 0) ? ' selected' : ''); 
-                                    echo ">Não</option>";
+                                    echo ">No</option>";
                                     echo "<option value='1'"; 
                                     echo (($resetar == 1) ? ' selected' : ''); 
-                                    echo ">Sim</option></select>";     
+                                    echo ">Yes</option></select>";     
                                 }
                             ?>
                             <br/>
+                            <Laber>Profile</Laber>
                             <?php 
                                 if($p == 0){
                                     echo "<select class='form-control' name='perfil'>
                                     <option value='1'"; 
                                     if(isset($perfil) && ($perfil != null || $perfil != ""))
                                         echo (($perfil == 1) ? ' selected' : ''); 
-                                    echo ">Usuário comum</option>";
+                                    echo ">User</option>";
                                     echo "<option value='0'"; 
                                     if(isset($perfil) && ($perfil != null || $perfil != ""))
                                         echo (($perfil == 0) ? ' selected' : ''); 
-                                    echo ">Administrador</option></select>";
+                                    echo ">Manager</option></select>";
                                 }
                             ?>
                             

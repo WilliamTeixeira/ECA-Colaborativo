@@ -1,6 +1,6 @@
 <?php
 /**
- * Description of subfunctionsDAO
+ * Description of index
  *
  * @author wtx
  */
@@ -21,11 +21,11 @@ $logado = $_SESSION["name"]
             <div class='col-md-12'>
                 <div class='card'>
                     <div class='header'>
-                        <h1 class='title' style="text-align: center">Sistema EconomiC Analyzer</h1>
+                        <h1 class='title' style="text-align: center">System EconomiC Analyzer</h1>
                         <p class='category'></p>
                     </div>
                     <div class='content table-responsive'>
-                          <h4 class="title">Bem-vindo ao sistema <?=$logado;?> </h4>
+                          <h4 class="title">Welcom <?=$logado;?> </h4>
 
                     </div>
                 </div>

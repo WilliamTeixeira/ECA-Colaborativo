@@ -43,7 +43,7 @@ $grafico->SetImageBorderType('plain');
 $grafico->SetPlotType('bars');
 $grafico->SetDataType('text-data');
 $grafico->SetDataValues($data);
-$grafico->SetTitle(utf8_decode("Total de beneficiários por estado em: "). $mesano);
+$grafico->SetTitle(utf8_decode("Total beneficiaries by state in: "). $mesano);
 
 # Turn off X tick labels and ticks because they don't apply here:
 $grafico->SetXTickLabelPos('none');

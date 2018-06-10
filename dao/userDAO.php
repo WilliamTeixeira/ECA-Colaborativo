@@ -170,15 +170,15 @@ class userDAO
      <table class='table table-striped table-bordered'>
      <thead>
        <tr style='text-transform: uppercase;' class='active'>
-        <th style='text-align: center; font-weight: bolder;'>Código</th>
+        <th style='text-align: center; font-weight: bolder;'>Code</th>
         <th style='text-align: center; font-weight: bolder;'>Login</th>
-        <!--<th style='text-align: center; font-weight: bolder;'>Senha</th> -->
-        <th style='text-align: center; font-weight: bolder;'>Nome</th>
+        <!--<th style='text-align: center; font-weight: bolder;'>Password</th> -->
+        <th style='text-align: center; font-weight: bolder;'>Name</th>
         <th style='text-align: center; font-weight: bolder;'>Email</th>
-        <th style='text-align: center; font-weight: bolder;'>Resetar</th>
-        <th style='text-align: center; font-weight: bolder;'>Perfil</th>";
+        <th style='text-align: center; font-weight: bolder;'>Reset</th>
+        <th style='text-align: center; font-weight: bolder;'>Profile</th>";
         if($_SESSION['perfil'] == 0){
-            echo "<th style='text-align: center; font-weight: bolder;' colspan='2'>Ações</th>";
+            echo "<th style='text-align: center; font-weight: bolder;' colspan='2'>Actions</th>";
         }
        echo "</tr>
      </thead>
@@ -191,7 +191,7 @@ class userDAO
         <td style='text-align: center'>$var->nome</td>
         <td style='text-align: center'>$var->email</td>
         <td style='text-align: center'>";
-            echo ($var->resetar == 0)? "Não" : "Sim"; 
+            echo ($var->resetar == 0)? "No" : "Yes"; 
         echo "</td>
         <td style='text-align: center'>";
            echo ($var->perfil == 0)? "Adm" : "User";

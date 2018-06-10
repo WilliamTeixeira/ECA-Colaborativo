@@ -132,11 +132,11 @@ class stateDAO
      <table class='table table-striped table-bordered'>
      <thead>
        <tr style='text-transform: uppercase;' class='active'>
-        <th style='text-align: center; font-weight: bolder;'>Código</th>
+        <th style='text-align: center; font-weight: bolder;'>Code</th>
         <th style='text-align: center; font-weight: bolder;'>UF</th>
-        <th style='text-align: center; font-weight: bolder;'>Nome</th>
-        <th style='text-align: center; font-weight: bolder;'>Região</th>
-        <th style='text-align: center; font-weight: bolder;' colspan='2'>Ações</th>
+        <th style='text-align: center; font-weight: bolder;'>Name</th>
+        <th style='text-align: center; font-weight: bolder;'>Region</th>
+        <th style='text-align: center; font-weight: bolder;' colspan='2'>Actions</th>
        </tr>
      </thead>
      <tbody>";

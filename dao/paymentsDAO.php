@@ -151,17 +151,17 @@ class paymentsDAO
      <table class='table table-striped table-bordered'>
      <thead>
        <tr style='text-transform: uppercase;' class='active'>
-        <th style='text-align: center; font-weight: bolder;'>Código</th>
-        <th style='text-align: center; font-weight: bolder;'>Cidade</th>
-        <th style='text-align: center; font-weight: bolder;'>Função</th>
-        <th style='text-align: center; font-weight: bolder;'>Sub-Função</th>
-        <th style='text-align: center; font-weight: bolder;'>Programa</th>
-        <th style='text-align: center; font-weight: bolder;'>Ação</th>
-        <th style='text-align: center; font-weight: bolder;'>Beneficiários</th>
-        <th style='text-align: center; font-weight: bolder;'>Fonte</th>
-        <th style='text-align: center; font-weight: bolder;'>Arquivos</th>
-        <th style='text-align: center; font-weight: bolder;'>Valor</th>
-        <th style='text-align: center; font-weight: bolder;' colspan='2'>Ações</th>
+        <th style='text-align: center; font-weight: bolder;'>Code</th>
+        <th style='text-align: center; font-weight: bolder;'>City</th>
+        <th style='text-align: center; font-weight: bolder;'>Function</th>
+        <th style='text-align: center; font-weight: bolder;'>Sub-Function</th>
+        <th style='text-align: center; font-weight: bolder;'>Program</th>
+        <th style='text-align: center; font-weight: bolder;'>Action</th>
+        <th style='text-align: center; font-weight: bolder;'>Beneficiaries</th>
+        <th style='text-align: center; font-weight: bolder;'>Font</th>
+        <th style='text-align: center; font-weight: bolder;'>Files</th>
+        <th style='text-align: center; font-weight: bolder;'>Value</th>
+        <th style='text-align: center; font-weight: bolder;' colspan='2'>Actions</th>
        </tr>
      </thead>
      <tbody>";

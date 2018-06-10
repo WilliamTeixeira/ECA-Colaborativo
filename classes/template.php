@@ -99,7 +99,7 @@ echo "
                 <a href='index.php'><img src=\"assets/img/logo.png\" height=\"150\" width=\"200\"></a>
                 <h4>EconomiC Analyzer</h4>
                 <small><a href=\"sair.php\">
-                    Sair
+                    Get out
                 </a></small>
             
         </div>
@@ -109,6 +109,12 @@ echo "
                     <a href=\"dashboard.php\">
                         <i class=\"ti-panel\"></i>
                         <p>Dashboard</p>
+                    </a>
+                </li>
+                <li>
+                    <a href='reports.php'>
+                        <i class=\"ti-files\"></i>
+                        <p>Reports</p>
                     </a>
                 </li>
                 <li>
@@ -176,19 +182,16 @@ echo "
                         <i class=\"ti-view-list-alt\"></i>
                         <p>Programs</p>
                     </a>
-                </li>
-                <li>
+                </li>";
+        if($_SESSION['perfil'] == 0){
+            echo"<li>
                     <a href='users.php'>
                         <i class=\"ti-user\"></i>
                         <p>Users</p>
                     </a>
-                </li>
-                <li>
-                    <a href='relatorioGeral.php'>
-                        <i class=\"ti-files\"></i>
-                        <p>Relatorio</p>
-                    </a>
-                </li>
+                </li>";
+        }
+        echo"
             </ul>
         </div>
     </div>";

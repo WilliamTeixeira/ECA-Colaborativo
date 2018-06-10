@@ -13,11 +13,11 @@ require_once "../vendor/mem_image.php";
 #Instancia o objeto e setando o tamanho do grafico na tela
 $grafico = new \PHPlot(1200, 300);
 #Indicamos o títul do gráfico e o título dos dados no eixo X e Y do mesmo
-$grafico->SetTitle(utf8_decode("Beneficiários por Mes e Ano"));
+$grafico->SetTitle(utf8_decode("Beneficiaries by Month and Year"));
 //$grafico->SetTitle("Beneficiários por Mês e Ano");
-$grafico->SetXTitle(utf8_decode("Mes e Ano"));
+$grafico->SetXTitle(utf8_decode("Month and Year"));
 
-$grafico->SetYTitle(utf8_decode("Número Beneficiários"));
+$grafico->SetYTitle(utf8_decode("Total Beneficiaries"));
 
 $query = "SELECT count(tb_beneficiaries_id_beneficiaries )as qtde, int_month as mes, int_year as ano
           FROM tb_payments group by int_month, int_year order by int_year asc, int_month asc;";
