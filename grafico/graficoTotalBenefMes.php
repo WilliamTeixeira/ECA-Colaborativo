@@ -11,6 +11,14 @@ require_once "../db/conexao.php";
 require_once "../lib/mem_image.php";
 //require_once "../relatorio/toPdf.php";
 
+session_start();
+        if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['password']) == true))
+        {
+            unset($_SESSION['login']);
+            unset($_SESSION['password']);
+      header('location:http://localhost/ECA-Colaborativo/login.php');
+        }else{
+
 #Instancia o objeto e setando o tamanho do grafico na tela
 $grafico = new \PHPlot(1200, 300);
 #Indicamos o títul do gráfico e o título dos dados no eixo X e Y do mesmo
@@ -55,3 +63,4 @@ $pdf = new PDF_MemImage();
 $pdf->AddPage();
 $pdf->GDImage($grafico->img, 30, 20, 140);
 $pdf->Output();
+        }

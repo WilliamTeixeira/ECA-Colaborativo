@@ -11,6 +11,14 @@ require_once "../db/conexao.php";
 require_once "../lib/mem_image.php";
 //require_once "../relatorio/toPdf.php";
 
+session_start();
+        if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['password']) == true))
+        {
+            unset($_SESSION['login']);
+            unset($_SESSION['password']);
+      header('location:http://localhost/ECA-Colaborativo/login.php');
+        }else{
+
 $query = "SELECT s.str_name estado, sum(p.tb_beneficiaries_id_beneficiaries) qtde, p.int_month mes , p.int_year ano
 	FROM tb_payments p 
 	inner join tb_city c 
@@ -78,3 +86,4 @@ $pdf = new PDF_MemImage();
 $pdf->AddPage();
 $pdf->GDImage($grafico->img, 30, 20, 140);
 $pdf->Output();
+        }
