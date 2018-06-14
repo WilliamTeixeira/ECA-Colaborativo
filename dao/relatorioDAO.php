@@ -31,7 +31,7 @@ class relatorioDAO
     {
         global $pdo;
         try {
-            $statement = $pdo->prepare('SELECT id_beneficiaries, str_name_person, str_nis, id_city, str_name_city, str_cod_siafi_city, tb_state_id_state FROM db_eca.tb_payments, db_eca.tb_city, db_eca.tb_beneficiaries WHERE tb_beneficiaries.id_beneficiaries = tb_payments.tb_beneficiaries_id_beneficiaries and tb_payments.tb_city_id_city = tb_city.id_city order by tb_city.str_name_city, tb_beneficiaries.str_name_person;');
+            $statement = $pdo->prepare('SELECT distinct (tb_beneficiaries.str_name_person), count(tb_payments.tb_beneficiaries_id_beneficiaries) count, tb_payments.int_month, tb_payments.int_year, sum(tb_payments.db_value) sum FROM tb_beneficiaries, tb_payments WHERE tb_beneficiaries_id_beneficiaries = id_beneficiaries GROUP BY tb_payments.tb_beneficiaries_id_beneficiaries, tb_payments.int_month,tb_payments.int_year');
             if ($statement->execute()) {
                 $lista = $statement->fetchAll(PDO::FETCH_OBJ);
                 return $lista;
