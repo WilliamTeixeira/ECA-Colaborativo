@@ -76,5 +76,5 @@ $grafico->DrawGraph();
 
 $pdf = new PDF_MemImage();
 $pdf->AddPage();
-$pdf->GDImage($grafico->img, 30, 20, 140);
+$pdf->GDImage($grafico->img, 30, 20, 240);
 $pdf->Output();
