@@ -146,7 +146,7 @@ $objPag = $dao->pagUltimoMes();
                                     <hr>
                                     <div class="stats">
                                         <i class="ti-info-alt"></i> Historic Serie | <i class="ti-export"></i>
-                                        <a href="grafico/graficoTotalBenefMes.php?print=TRUE">Export PDF</a>
+                                        <a href="grafico/graficoTotalBenefMes.php?print=TRUE" target="_blank">Export PDF</a>
                                     </div>
                                 </div>
                             </div>
@@ -174,7 +174,7 @@ $objPag = $dao->pagUltimoMes();
                                     <hr>
                                     <div class="stats">
                                         <i class="ti-timer"></i> Total | <i class="ti-export"></i>
-                                        <a href="grafico/graficoTotalBenefEstado.php?print=TRUE">Export PDF</a>
+                                        <a href="grafico/graficoTotalBenefEstado.php?print=TRUE" target="_blank">Export PDF</a>
                                     </div>
                                 </div>
                             </div>
@@ -199,7 +199,7 @@ $objPag = $dao->pagUltimoMes();
                                     <hr>
                                     <div class="stats">
                                         <i class="ti-check"></i> Last Month | <i class="ti-export"></i>
-                                        <a href="grafico/graficoTotalPagEstado.php?print=TRUE">Export PDF</a>
+                                        <a href="grafico/graficoTotalPagEstado.php?print=TRUE" target="_blank">Export PDF</a>
                                     </div>
                                 </div>
                             </div>

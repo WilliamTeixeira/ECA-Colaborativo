@@ -101,7 +101,7 @@ echo "
                     EconomiC Analyzer
                 </h4>
                 <small><a href=\"sair.php\">
-                    Get out
+                    Exit
                 </a></small>
         </div>
 
