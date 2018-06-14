@@ -157,7 +157,7 @@ echo "
                 <li>
                     <a href='payments.php'>
                         <i class=\"ti-money\"></i>
-                        <p>Pagamentos</p>
+                        <p>Payments</p>
                     </a>
                 </li>
                 <li>
@@ -202,7 +202,7 @@ echo "
     {
 
         date_default_timezone_set('America/Sao_Paulo');
-        $data = date('d-m-Y');
+        $data = date("F j, Y");
         
         echo "<div class=\"main-panel\">
         <nav class=\"navbar navbar-default\">
