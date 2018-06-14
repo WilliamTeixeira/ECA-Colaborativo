@@ -36,8 +36,6 @@ foreach ($listObjs as $var):
           </tr>";
 endforeach;
 $html .= "</table>";
-
-
 $mpdf=new \Mpdf\Mpdf();
 $mpdf->SetCreator(PDF_CREATOR);
 $mpdf->SetAuthor('Hugo Nogueira Pinto');
@@ -49,6 +47,5 @@ $mpdf->nbpgPrefix = ' de ';
 $mpdf->setFooter("Relatório gerado no dia {$dia} às {$hr} - Página {PAGENO}{nbpg}");
 $mpdf->WriteHTML($html);
 $mpdf->Output('economicAnalyzer.pdf','I');
-
 exit;
-        }
+}
