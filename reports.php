@@ -43,7 +43,7 @@ $template->mainpanel();
                             $relatorioselecionado = $_POST['relatoriosDisponiveis'];
                             
                             if ($relatorioselecionado=="relatorioNulo"){ 
-                                echo "Por favor selecione um relatorio da lista a cima!";
+                                echo "Please, select a report from the list above.";
                             }else { 
                                 echo "<script>script:window.open('relatorio/".$relatorioselecionado.".php', '_blank');</script>";
                             }                        

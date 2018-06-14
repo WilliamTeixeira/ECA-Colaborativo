@@ -5,23 +5,32 @@ ini_set('display_errors', 0);
 require_once  "../vendor/autoload.php";
 require_once "../dao/relatorioDAO.php";
 
+session_start();
+        if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['password']) == true))
+        {
+            unset($_SESSION['login']);
+            unset($_SESSION['password']);
+      header('location:http://localhost/ECA-Colaborativo/login.php');
+        }else{
+
 $dao = new relatorioDAO();
+$dao->verificaLogin();
 
 $listObjs = $dao->relatorio03();
 $dia = $dao ->dataAtual();
 $hr = $dao ->horaAtual();
 
-$html = "<table border='1' cellspacing='3' cellpadding='4' >";
+        $html = "<table border='2' cellspacing='3' cellpadding='5' >";
 $html .= "<tr>
-            <th>ID PAYMENT</th>
-            <th>CITY</th>
-            <th>FUNCTIONO</th>
-            <th>SUB-FUNCTION</th>
-            <th>PROGRAM</th>
-            <th>ACTION</th>
+            <th>ID PAGAMENTO</th>
+            <th>CIDADE</th>
+            <th>FUNÇÃO</th>
+            <th>SUB-FUNCAO</th>
+            <th>PROGRAMA</th>
+            <th>AÇÃO</th>
             <th>BENEFICIARIES</th>
             <th>NIS</th>
-            <th>FILE</th>
+            <th>ARQUIVO</th>
         </tr>";
 foreach ($listObjs as $var):
     $html.= "<tr>
@@ -42,13 +51,16 @@ $mpdf=new \Mpdf\Mpdf();
 //$mpdf=new mPDF();
 $mpdf->SetCreator(PDF_CREATOR);
 $mpdf->SetAuthor('Hugo Nogueira Pinto');
-$mpdf->SetTitle('PDF report with list of payments including their respective data');
-$mpdf->SetSubject('System EconomiC Analyzer');
+$mpdf->SetTitle('Relatório PDF com a lista de os pagamentos, incluindo seus respectivos dados');
+$mpdf->SetSubject('Sistema EconomiC Analyzer');
 $mpdf->SetKeywords('TCPDF, PDF, trabalho PHP');
 $mpdf->SetDisplayMode('fullpage');
 $mpdf->nbpgPrefix = ' de ';
-$mpdf->setFooter("Report generated on {$dia} at {$hr} - Page {PAGENO}{nbpg}");
+$mpdf->setFooter("Relatório gerado no dia {$dia} às {$hr} - Página {PAGENO}{nbpg}");
 $mpdf->WriteHTML($html);
 $mpdf->Output('economicAnalyzer.pdf','I');
 
 exit;
+        
+        
+}
