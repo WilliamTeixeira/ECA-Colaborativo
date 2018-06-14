@@ -29,8 +29,8 @@ $html .= "<tr>
 foreach ($listObjs as $var):
     $html.= "<tr>
                 <td>$var->tb_beneficiaries</td>
-                <td>$var->QTD</td>
-                <td>$var->SOMA</td>
+                <td>$var->count</td>
+                <td>$var->sum</td>
                 <td>$var->int_month</td>
                 <td>$var->int_year</td>
           </tr>";
